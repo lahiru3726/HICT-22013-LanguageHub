@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">LanguageHub banner</title>
+  <desc id="desc">A colorful LanguageHub banner with a speech bubble, globe, and language characters.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102a43"/>
+      <stop offset="1" stop-color="#1f7a8c"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffcf56"/>
+      <stop offset="1" stop-color="#f28f3b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="420" rx="28" fill="url(#background)"/>
+  <circle cx="1020" cy="70" r="130" fill="#ffffff" opacity=".08"/>
+  <circle cx="1050" cy="365" r="180" fill="#ffffff" opacity=".06"/>
+  <path d="M118 288c0-74 60-134 134-134h170c74 0 134 60 134 134s-60 134-134 134H252l-76 42 20-57c-47-24-78-68-78-119Z" fill="#ffffff" opacity=".98"/>
+  <text x="178" y="275" fill="#102a43" font-family="Georgia, serif" font-size="92" font-weight="700">Aa</text>
+  <text x="330" y="275" fill="#1f7a8c" font-family="Georgia, serif" font-size="92" font-weight="700">あ</text>
+  <text x="205" y="342" fill="#f28f3b" font-family="Georgia, serif" font-size="54" font-weight="700">Hola</text>
+  <circle cx="830" cy="210" r="126" fill="url(#accent)"/>
+  <path d="M704 210h252M830 84c-38 34-58 77-58 126s20 92 58 126M830 84c38 34 58 77 58 126s-20 92-58 126M722 148c31 17 68 26 108 26s77-9 108-26M722 272c31-17 68-26 108-26s77 9 108 26" fill="none" stroke="#102a43" stroke-width="10" stroke-linecap="round"/>
+  <text x="594" y="370" fill="#ffffff" font-family="Georgia, serif" font-size="64" font-weight="700">LanguageHub</text>
+</svg>
