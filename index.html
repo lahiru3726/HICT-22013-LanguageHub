@@ -1,12 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LanguageHub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lan Hub — Your Learning Buddy</title>
+
+<!-- ===================== STYLESHEETS ===================== -->
+<!-- Split per Figma page, loaded in cascade order -->
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/page1-landing.css">
+<link rel="stylesheet" href="css/page2-language.css">
+<link rel="stylesheet" href="css/page3-trust.css">
+<link rel="stylesheet" href="css/page4-about.css">
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <h1>Languahe Hub learn best Languge for the future...</h1>
-    <h2>add the testing day 2</h2>
+
+<!-- ============================================================
+     heder.css
+     ============================================================ -->
+<header class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="#page-1" class="navbar__logo">
+      <img src="assets/main-logo.jpg" alt="Lan Hub logo">
+    </a>
+    <nav class="navbar__links">
+      <a href="#page-1" class="navbar__link">Home</a>
+      <a href="#page-4" class="navbar__link">About</a>
+      <a href="#footer" class="navbar__link">Share your Knowledge</a>
+
+      <div class="navbar__dropdown" id="langDropdown">
+        <button class="navbar__link navbar__link--dropdown" id="langToggle" aria-haspopup="true" aria-expanded="false">
+          Languages
+          <svg class="navbar__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <ul class="navbar__dropdown-menu" id="langMenu">
+          <li><a href="#" class="navbar__link">Japanese</a></li>
+          <li><a href="#" class="navbar__link">Korean</a></li>
+          <li><a href="#" class="navbar__link">Italy</a></li>
+          <li><a href="#" class="navbar__link">IELTS</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="navbar__accent-line"></div>
+</header>
+
+<main id="scrollContainer">
+
+  <!-- ============================================================
+       PAGE 1 — LANDING.css
+       ============================================================ -->
+  <section class="page page--landing" id="page-1" data-animate-page>
+    <div class="page1__content">
+
+      <div class="page1__left" data-animate="left">
+        <div class="page1__spectacles" id="spectaclesWrap">
+          <!-- Inlined so JS can move the white eyeball highlights -->
+          <svg version="1.1" id="main-spectacles-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+               viewBox="0 0 1000 1000" xml:space="preserve">
+          <style type="text/css">
+            .st0{fill:#16D889;}
+            .st1{fill:#F99C15;}
+            .st2{opacity:0.3;fill:#FFFFFF;}
+            .st3{fill:#02471A;}
+            .st4{fill:#FFFFFF;}
+          </style>
+          <path class="st0" d="M853.43,433.65c-1.68-2.61-3.86-3.98-4.99-4.57c-7.06-0.56-14.12-1.1-21.18-1.65
+            c-3.86-0.93-9.54-2.65-15.79-6.02c-7.43-4.03-10.85-7.8-17.86-13.92c-10.8-9.43-17.63-15.39-27.24-20.04
+            c-7.15-3.45-13.96-4.96-27.59-8c-10.12-2.25-18.61-3.57-24.5-4.35c-66.81-2.53-135.8-3.98-206.84-4.16
+            c-72.8-0.17-143.46,1.02-211.83,3.32c-14.38,1.45-26.23,3.79-34.89,5.81c-14.71,3.46-22.06,5.19-30.95,9.98
+            c-2.22,1.19-1.86,1.14-26.37,19.94c-10.8,8.28-16.68,12.7-25.75,15.51c-5.63,1.73-11.84,2.64-12.73,2.77
+            c-6.55,0.93-12.16,1-16.35,0.83c-0.65,0.57-1.46,1.38-2.21,2.49c-0.92,1.37-1.41,2.67-1.67,3.61c0.1,11.54,0.19,23.07,0.28,34.61
+            c0.32,0.83,1.28,2.95,3.59,4.43c1.54,0.98,3.02,1.28,3.88,1.38c2.71-0.04,7.24,0.27,12.19,2.49c5.27,2.38,8.39,5.72,9.98,7.48
+            c2.82,3.1,4.54,6.16,5.53,8.31c1.43,14.54,5.63,38.38,19.67,63.96c8.13,14.82,21.31,38.86,49.84,54.81
+            c27.92,15.64,54.82,14.73,67.84,14.12c6.93-0.32,30.88-1.95,57.86-15.51c23.39-11.73,37.41-26.58,48.19-38.21
+            c17.21-18.57,26.61-35.42,37.1-54.27c11.26-20.2,18.88-37.94,23.82-50.67c0.15-5.13-0.18-9.27-0.56-12.19
+            c-0.36-2.92-0.68-4.15-1.1-5.26c-1.47-3.94-3.4-4.72-4.99-7.48c-2.4-4.17-2.36-9.99-0.27-14.12c2.15-4.26,6.13-6.02,9.41-7.47
+            c1.12-0.5,15.43-6.56,27.96,1.1c2.67,1.64,7.38,4.51,8.59,9.69c0.89,3.85-0.45,7.55-1.94,11.63c-1.63,4.47-2.87,5.39-4.16,8.59
+            c-1.31,3.23-2.44,8.22-1.1,15.51c2.69,6.6,6.75,16.14,12.17,27.41c9.16,19.02,21.35,43.92,42.37,70.06
+            c8.5,10.57,13.9,17.29,22.99,25.2c13.7,11.94,43.28,33.14,85.29,35.99c11.4,0.78,34.7,2.08,60.91-9.69
+            c25.55-11.46,39.9-29.07,46.52-37.38c16.57-20.8,22.94-41.53,27.14-55.65c3.72-12.51,5.54-23.31,6.5-31.01
+            c0.98-2.35,3.61-7.79,9.56-12.04c5.19-3.71,10.34-4.68,12.87-4.99c1.09,0.09,5.66,0.34,9.34-2.91c1.55-1.34,2.42-2.87,2.91-3.94
+            c0.21-9.07,0.41-18.13,0.63-27.2C855.61,440.73,855.71,437.18,853.43,433.65z M452.83,487.23c-9.2,23.13-19.69,48.86-43.68,77.26
+            c-19.51,23.09-34.01,31.47-39.18,34.27c-3.1,1.67-11.14,5.84-22.29,9.2c-24.11,7.27-44.08,5.19-48.19,4.7
+            c-9.01-1.05-33.26-4.19-55.38-22.42c-23.97-19.76-31.08-45.42-35.99-63.14c-7.11-25.62-5.39-46-4.16-60.64
+            c1.67-19.72,5.47-28.65,8.58-34.33c7.4-13.52,17.59-20.88,20.22-22.7c4.42-3.08,9.11-5.49,16.33-8.17
+            c18.43-6.85,34.75-8.54,44.23-9.34c31.83-2.73,57.14-1.52,70.4-0.63c31.87,2.16,44.53,5.97,49.22,7.48
+            c26.53,8.52,35.12,19.38,37.38,22.43c7.64,10.29,9.37,20.89,9.98,24.91C462.35,459.7,459.21,471.19,452.83,487.23z M790.98,525.99
+            c-4.92,17.72-12.03,43.38-36,63.14c-22.11,18.23-46.36,21.37-55.38,22.43c-4.11,0.48-24.07,2.57-48.17-4.72
+            c-11.15-3.36-19.2-7.53-22.29-9.2c-5.18-2.8-19.68-11.18-39.19-34.27c-23.98-28.39-34.48-54.12-43.68-77.25
+            c-6.38-16.05-9.52-27.54-7.47-41.13c0.59-4.01,2.33-14.61,9.96-24.91c2.26-3.05,10.85-13.9,37.38-22.43
+            c4.69-1.51,17.37-5.32,49.22-7.47c13.26-0.9,38.57-2.09,70.4,0.62c9.5,0.8,25.81,2.49,44.23,9.34c7.22,2.69,11.91,5.09,16.33,8.17
+            c2.64,1.83,12.82,9.19,20.22,22.7c3.11,5.69,6.91,14.63,8.58,34.33C796.37,479.99,798.09,500.37,790.98,525.99z"/>
+          <g>
+            <ellipse class="st1" cx="319.89" cy="499.09" rx="77.37" ry="83.12"/>
+            <path class="st2" d="M396.64,509.52c-2.96,0.06-24.74,0.86-39.34,19.38c-16.35,20.73-9.13,45.2-8.47,47.29
+              c6.93-3.16,17.53-9.11,27.23-19.95C392.33,538.05,395.74,517.63,396.64,509.52z"/>
+            <ellipse class="st3" cx="319.89" cy="499.09" rx="57.19" ry="61.44"/>
+            <ellipse id="eye-white-left" class="st4" cx="319.89" cy="478.8" rx="28.6" ry="30.72"/>
+          </g>
+          <g>
+            <ellipse class="st1" cx="675.43" cy="500.67" rx="77.37" ry="83.12"/>
+            <ellipse class="st3" cx="675.43" cy="500.67" rx="57.19" ry="61.44"/>
+            <ellipse id="eye-white-right" class="st4" cx="675.43" cy="478.8" rx="28.6" ry="30.72"/>
+            <path class="st2" d="M752.18,511.1c-2.96,0.06-24.74,0.86-39.34,19.38c-16.35,20.73-9.13,45.2-8.47,47.29
+              c6.93-3.16,17.53-9.11,27.23-19.95C747.87,539.63,751.27,519.21,752.18,511.1z"/>
+          </g>
+          </svg>
+        </div>
+
+        <h1 class="page1__title">Lan <span class="page1__title-hub">hub</span></h1>
+        <p class="page1__tagline">your learning buddy is her to help.</p>
+        <p class="page1__body">
+          Learn your languages from the right place.<br>
+          From the guidance of the professional learning places, with
+          best learning techniques for each age categories to accomplish the dream of
+          leaning the world.
+        </p>
+      </div>
+
+      <div class="page1__right" data-animate="right">
+        <img src="assets/normal-waving-image.svg" alt="Waving Lan Hub character" class="page1__waving-img">
+      </div>
+
+    </div>
+  </section>
+<br>
+  <!-- ============================================================
+       PAGE 2 — PICK YOUR LANGUAGE.css
+       ============================================================ -->
+  <section class="page page--language" id="page-2" data-animate-page>
+    <div class="page2__content">
+      <div class="page2__left" data-animate="left">
+        <img src="assets/normal-thinking-image.svg" alt="Character thinking which language to pick" class="page2__thinking-img">
+      </div>
+      <div class="page2__right" data-animate="right">
+        <h2 class="section-title">Pick your language</h2>
+        <div class="page2__grid">
+          <div class="lang-card" data-animate="card" style="--d:0s">
+            <span class="lang-card__name">Japanese</span>
+          </div>
+          <div class="lang-card" data-animate="card" style="--d:0.08s">
+            <span class="lang-card__name">Korean</span>
+          </div>
+          <div class="lang-card" data-animate="card" style="--d:0.16s">
+            <!-- CHANGED: "Italy" to "Italian" -->
+            <span class="lang-card__name">Italian</span> 
+          </div>
+          <div class="lang-card" data-animate="card" style="--d:0.24s">
+            <span class="lang-card__name">IELTS</span>
+          </div>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ============================================================
+       PAGE 3 — TRUST THE PROCESS
+       ============================================================ -->
+  <section class="page page--trust" id="page-3" data-animate-page>
+    <div class="page3__content">
+      <div class="page3__left" data-animate="left">
+        <h2 class="section-title">Trust the process</h2>
+        <p class="page3__body">
+          Our teaching system has been recognized and appreciated by respected
+          organizations, institutions, and universities, reflecting the quality and effectiveness
+          of our learning approach. Through continuous evaluation and proven results across
+          multiple standards, we have built a trusted learning environment for students of all
+          ages. Learn with confidence, trust the process, and let us guide you toward your
+          goals with a system designed for success.
+        </p>
+        <p class="page3__body">
+          Our commitment to excellence is reflected in the trust placed in us by
+          respected educational bodies and learning communities. By maintaining high
+          standards, innovative teaching methods, and a student-focused approach, we
+          continue to help learners achieve meaningful results.
+        </p>
+        <p class="page3__body">
+          Every lesson, resource, and learning experience is carefully designed to
+          inspire growth, build confidence, and create a pathway to lifelong success.
+        </p>
+      </div>
+      <div class="page3__right" data-animate="right">
+        <img src="assets/normal-trust-the-process.svg" alt="Character pointing up, trust the process" class="page3__img">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PAGE 4 — ABOUT LAN HUB
+       ============================================================ -->
+  <section class="page page--about" id="page-4" data-animate-page>
+    <div class="page4__content">
+      <div class="page4__left" data-animate="left">
+        <img src="assets/normal-about-us-image.svg" alt="Character holding Lan Hub sign" class="page4__img">
+      </div>
+      <div class="page4__right" data-animate="right">
+        <h2 class="section-title">About Lan hub</h2>
+        <p class="page4__body">
+          Lan Hub is a modern learning platform dedicated to making education
+          accessible, engaging, and effective for learners of all ages. Our mission is to
+          provide high-quality learning experiences through innovative teaching
+          methods, expert guidance, and carefully designed educational resources.
+        </p>
+        <p class="page4__body">
+          We believe that every learner has the potential to succeed when given the right
+          support and opportunities. At Lan Hub, we focus on creating a trusted
+          learning environment where knowledge, creativity, and personal growth come
+          together.
+          Whether you are developing new skills, advancing your education, or
+          pursuing your career goals, Lan Hub is here to support your journey every
+          step of the way.
+        </p>
+        <a href="#page-1" class="btn btn--primary page4__cta">Let's Learn</a>
+        <br>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER.css
+       ============================================================ -->
+ <footer class="footer" id="footer">
+  <div class="footer__accent-line"></div>
+  <div class="footer__inner">
+    
+    <!-- Column 1: Brand details & Socials -->
+    <div class="footer__col footer__col--brand">
+      <div class="footer__logo-wrap">
+        <img src="assets/main-logo.jpg" alt="Lan Hub logo" class="footer__logo">
+      </div>
+      <p class="footer__brand-desc">Your friendly neighborhood learning companion for mastering global languages.</p>
+    </div>
+
+    <!-- Column 2: Navigation Links -->
+    <div class="footer__col footer__col--links">
+      <span class="footer__col-title">Explore</span>
+      <a href="#page-1">Home</a>
+      <a href="#page-4">About Us</a>
+      <a href="#footer">Share your Knowledge</a>
+    </div>
+
+    <!-- Column 3: Languages Links (Fixed Typo) -->
+    <div class="footer__col footer__col--links">
+      <span class="footer__col-title">Languages</span>
+      <a href="#">Italian</a> <!-- FIXED: Changed from Italy to Italian -->
+      <a href="#">Japanese</a>
+      <a href="#">Korean</a>
+      <a href="#">IELTS Prep</a>
+    </div>
+
+  </div>
+
+  <!-- Bottom Copyright Bar -->
+  <div class="footer__bottom">
+    <div class="footer__bottom-inner">
+      <span>&copy; 2026 Lan Hub. All rights reserved.</span>
+      <div class="footer__bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<script src="js/main.js"></script>
 </body>
 </html>
