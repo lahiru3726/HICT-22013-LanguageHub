@@ -1,0 +1,6 @@
+[data-animate] {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity var(--duration-enter) var(--ease-gentle),
+              transform var(--duration-enter) var(--ease-gentle);
+}
