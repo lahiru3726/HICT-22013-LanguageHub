@@ -1,6 +1,42 @@
 [data-animate] {
-  opacity: 0;
-  will-change: transform, opacity;
-  transition: opacity var(--duration-enter) var(--ease-gentle),
-              transform var(--duration-enter) var(--ease-gentle);
+opacity: 0;
+will-change: transform, opacity;
+transition: opacity var(--duration-enter) var(--ease-gentle),
+            tranform var(--duration-enter) var(--ease-gentle),
+}
+
+[data-animate="left"] {
+  transform: translatex(-60px);
+}
+
+[data-animate="right"] {
+transform: translateX(-60px);
+}
+
+[data-animate="card"] {
+transform: translateY(40px) scale(0.94);
+transition-delay: var(--d,0s);
+}
+
+.page.in-view [data-animate] {
+opacity: 1;
+transform: translate(0, 0) scale(1);
+}
+
+.page--landing[data-animate-page] [data-animate] {
+ transition-duration: var(--duration-load);
+transition-delay: var(--delay-load);
+}
+
+.page--landing.replayed [data-animate] {
+transition-delay: 0s;
+transition-duration: var(--duration-enter);
+}
+
+@media (prefers-reduced-motion: reduce) {
+ [data-animate] {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
