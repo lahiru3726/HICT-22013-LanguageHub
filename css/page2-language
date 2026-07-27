@@ -54,6 +54,7 @@ justify-content: center;
   box-shadow: 0 8px 20px 5px rgba(22, 216, 137, 0.35);
 }
 
+.lang-card__name {
   font-family: var(--font-display);
   font-size: 20px;
   font-weight: 700;
