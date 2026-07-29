@@ -9,6 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Set initial language to IELTS
     let currentLanguage = 'ielts';
+    
+    // Auto-transition settings
+    const languages = ['ielts', 'japanese', 'korean', 'italy'];
+    let currentIndex = 0;
+    let autoSwitchInterval;
+    const AUTO_SWITCH_DELAY = 2000; // 2 seconds
+    let isAutoSwitching = true;
 
     /**
      * Switch the language section
@@ -58,6 +65,25 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
+     * Start automatic language switching every 2 seconds
+     */
+    function startAutoSwitch() {
+        autoSwitchInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % languages.length;
+            switchLanguage(languages[currentIndex]);
+        }, AUTO_SWITCH_DELAY);
+    }
+
+    /**
+     * Stop automatic language switching
+     */
+    function stopAutoSwitch() {
+        if (autoSwitchInterval) {
+            clearInterval(autoSwitchInterval);
+        }
+    }
+
+    /**
      * Handle dropdown link clicks
      */
     dropdownLinks.forEach(link => {
@@ -65,7 +91,15 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             const selectedLanguage = this.getAttribute('data-language');
+            
+            // Stop auto-switching when user manually selects
+            stopAutoSwitch();
+            isAutoSwitching = false;
+            
             switchLanguage(selectedLanguage);
+            
+            // Update current index
+            currentIndex = languages.indexOf(selectedLanguage);
 
             // Close the dropdown after selection (optional)
             closeDropdown();
@@ -131,8 +165,12 @@ document.addEventListener('DOMContentLoaded', function() {
         switchLanguage('ielts');
         updateDropdownButtonText('ielts');
 
+        // Start automatic switching
+        startAutoSwitch();
+        isAutoSwitching = true;
+
         // Log initialization
-        console.log('Language Section initialized');
+        console.log('Language Section initialized with auto-transition every 2 seconds');
     }
 
     // Run initialization
@@ -172,6 +210,24 @@ document.addEventListener('languageChange', function(e) {
         console.log(`External language change triggered: ${e.language}`);
     }
 });
+
+/**
+ * Resume auto-switching after user interaction
+ * Optional: Uncomment to enable auto-resume after 10 seconds of inactivity
+ */
+/*
+let resumeTimeout;
+document.addEventListener('click', function() {
+    if (!isAutoSwitching) {
+        clearTimeout(resumeTimeout);
+        resumeTimeout = setTimeout(() => {
+            startAutoSwitch();
+            isAutoSwitching = true;
+            console.log('Auto-switching resumed after inactivity');
+        }, 10000); // Resume after 10 seconds of no clicks
+    }
+});
+*/
 
 // ===================================
 // PERFORMANCE: Lazy load SVG content
