@@ -1,0 +1,37 @@
+/* =====================================================================
+   FONTS
+   ---------------------------------------------------------------------
+   The Figma file calls out two custom fonts:
+     1) "Arista Pro Alternate"  -> used for the big display words
+        (the "Lan hub" logotype, "your learning buddy is her to help.",
+        every section H1/H2 title, card labels, button labels)
+     2) "Arial GEO"             -> used for all normal/body paragraph copy
+
+   NEITHER font is a free/system font, and no font files were included in
+   the asset zip, so they can't be embedded automatically. Drop the actual
+   font files into this /fonts folder (woff2 preferred) and the two
+   @font-face blocks below will pick them up immediately — nothing else
+   needs to change. Until then, the site falls back to the closest
+   web-safe stacks so layout/spacing stays correct.
+   ===================================================================== */
+
+@font-face {
+  font-family: "Arista Pro Alternate";
+  src: url("../fonts/AristaProAlternate-Regular.woff2") format("woff2"),
+       url("../fonts/AristaProAlternate-Regular.woff") format("woff");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Arial GEO";
+  src: url("../fonts/ArialGEO-Regular.woff2") format("woff2"),
+       url("../fonts/ArialGEO-Regular.woff") format("woff");
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --font-display: "Arista Pro Alternate", "Poppins", "Segoe UI", sans-serif;
+  --font-body: "Arial GEO", Arial, "Helvetica Neue", sans-serif;
+}

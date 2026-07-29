@@ -1,0 +1,87 @@
+/* =====================================================================
+   PAGE 1 — LANDING
+   ---------------------------------------------------------------------
+   Left to right: spectacles svg (with eyes that track the cursor) ->
+   "Lan hub" wordmark @170px -> tagline @20px Arista Pro Alternate ->
+   body copy @15px Arial GEO -> CTA button. Waving character on the
+   right, 413.2 x 542.31.
+   ===================================================================== */
+
+.page--landing {
+  justify-content: center;
+}
+
+.page1__content {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: -70px;
+}
+
+.page1__left {
+  max-width: 640px;
+}
+
+.page1__spectacles {
+  width: 500px;
+  margin-bottom: -200px;
+  margin-left: -75px; /* CHANGED: Negative margin pulls the text up closer */
+}
+
+.page1__spectacles svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* The two white ellipses (eye-white-left / eye-white-right) are moved
+   via inline transform by js/main.js, tracking the cursor position
+   anywhere on the page — "eyes looking at the cursor" effect. */
+#eye-white-left,
+#eye-white-right {
+  transition: transform 0.08s linear;
+}
+
+.page1__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 170px;
+  line-height: 1;
+  color: var(--color-black);
+  margin-top: 0; /* ADDED: Removes the massive default browser gap above the title */
+  margin-left: -14px;
+}
+.page1__title-hub {
+  color: var(--color-orange);
+}
+
+.page1__tagline {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--color-black);
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+
+.page1__body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-grey-text);
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+
+.page1__right {
+  flex-shrink: 0;
+}
+
+.page1__waving-img {
+  width: 413.2px;
+  height: 542.31px;
+  object-fit: contain;
+}

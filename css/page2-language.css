@@ -1,0 +1,82 @@
+/* =====================================================================
+   PAGE 2 — PICK YOUR LANGUAGE
+   ---------------------------------------------------------------------
+   Thinking character on the left (486.73 x 534). "Pick your language"
+   title @64px bold, 2x2 grid of 191x224 cards.
+
+   IMPORTANT — reused shadow spec:
+   The brief calls out this exact shadow recipe as a value to reuse
+   anywhere the same box style shows up again in this file or in future
+   scans: color #16D889, X 0 / Y 4px, blur 13.5px, spread 5px (Figma
+   units), softened/"faded". Converted straight to CSS below and kept
+   in one place (.lang-card) so any future duplicate box can just reuse
+   this class.
+   ===================================================================== */
+
+.page--language {
+  justify-content: center;
+}
+
+.page2__content {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.page2__left {
+  flex-shrink: 0;
+}
+
+.page2__thinking-img {
+  width: 486.73px;
+  height: 534px;
+  object-fit: contain;
+}
+
+.page2__right {
+  flex: 1;
+  max-width: 620px;
+}
+
+.page2__right .section-title {
+  margin-bottom: 40px;
+}
+
+.page2__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 191px);
+  grid-template-rows: repeat(2, 224px);
+  gap: 24px;
+  justify-content: center; /* Ensures the 2x2 block sits perfectly in the middle */
+}
+
+
+.lang-card {
+  width: 191px;
+  height: 224px;
+  border-radius: 16px;
+  background: var(--color-white);
+  /* Figma: fill #16D889, X:0 Y:4 Blur:13.5 Spread:5 -> faded shadow */
+  box-shadow: 0 4px 13.5px 5px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 24px;
+  transition: transform 0.3s var(--ease-gentle), box-shadow 0.3s var(--ease-gentle);
+}
+
+.lang-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px 5px rgba(22, 216, 137, 0.35);
+}
+
+.lang-card__name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-green);
+}

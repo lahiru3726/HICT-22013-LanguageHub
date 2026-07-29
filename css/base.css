@@ -1,0 +1,122 @@
+/* =====================================================================
+   BASE / RESET / GLOBAL VARIABLES
+   ===================================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Brand colors picked from the Figma screens */
+  --color-green: #16D889;
+  --color-green-dark: #02471A;
+  --color-orange: #F99C15;
+  --color-red: #D94D42;
+  --color-black: #1A1A1A;
+  --color-white: #FFFFFF;
+  --color-grey-text: #6B6B6B;
+
+  /* Layout */
+  --nav-height: 90px;
+  --footer-height: 215px;
+  --page-gutter: 79.03px; /* left/right gap so content sits centered */
+
+  /* "Gentle" easing — the closest cubic-bezier match to Figma's
+     Smart Animate "Gentle" spring preset used throughout the file */
+  --ease-gentle: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Animation durations exactly as specified in the Figma prototype */
+  --duration-load: 1100ms;   /* first page, on initial load            */
+  --duration-enter: 1000ms;  /* every other page, on scroll/mouse enter */
+  --delay-load: 400ms;       /* initial load delay before animating in */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-black);
+  background: var(--color-white);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---------------------------------------------------------------------
+   Scroll container: each of the 4 main pages snaps to 100vh, exactly as
+   called out in the brief ("all the above pages has to brake in 100vh
+   to 100vh height"). The footer is intentionally excluded from the
+   snap flow — it's a fixed 215px bar appended after page 4.
+   --------------------------------------------------------------------- */
+#scrollContainer {
+  scroll-snap-type: y proximity;
+}
+
+.page {
+  min-height: 104vh;
+  height: 60vh;
+  width: 100%;
+  scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--page-gutter);
+  padding-top: var(--nav-height); /* clear the fixed navbar */
+  overflow: hidden;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 64px;
+  color: var(--color-green);
+  line-height: 1.1;
+}
+
+/* ---------------------------------------------------------------------
+   Buttons — 181px x 48px, 20px "Arial GEO" label, green fill
+   --------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 181px;
+  height: 48px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 20px;
+  transition: transform 0.25s var(--ease-gentle), background-color 0.25s ease;
+}
+
+.btn--primary {
+  background: var(--color-green);
+  color: var(--color-white);
+}
+
+.btn--primary:hover {
+  background: var(--color-green-dark);
+  transform: translateY(-2px);
+}

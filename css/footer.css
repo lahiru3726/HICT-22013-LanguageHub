@@ -1,0 +1,127 @@
+/* =====================================================================
+   FOOTER — MODERN GLOW UP
+   ===================================================================== */
+
+:root {
+  /* Dynamic height fallback if not defined elsewhere */
+  --footer-height: auto; 
+  --page-gutter: 8%;
+}
+
+.footer {
+  width: 100%;
+  background: #f5f8f6; /* Modern sleek dark background to anchor the page */
+  position: relative;
+  scroll-snap-align: start;
+  padding-top: 0;
+}
+
+.footer__accent-line {
+  height: 6px;
+  width: 100%;
+  background: var(--color-green, #16D889);
+}
+
+.footer__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; /* Gives the logo column more breathing room */
+  gap: 60px;
+  padding: 60px var(--page-gutter) 40px var(--page-gutter);
+}
+
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Brand styling specifics */
+.footer__logo {
+  width: 160px; /* Scaled down slightly to look balanced and clean */
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.footer__brand-desc {
+  font-family: var(--font-body, Arial, sans-serif);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #474947; /* Soft muted grey text against dark background */
+  max-width: 280px;
+  margin-top: 8px;
+}
+
+/* Common Header Titles for Columns */
+.footer__col-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: #313131;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Smooth Interactive Links */
+.footer__col a {
+  font-family: var(--font-body, Arial, sans-serif);
+  font-size: 14px;
+  color: #4b4d4b;
+  text-decoration: none;
+  width: fit-content;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footer__col a:hover {
+  color: var(--color-green, #16D889);
+  transform: translateX(4px); /* Subtle nudge effect on hover */
+}
+
+/* Bottom Row Styling */
+.footer__bottom {
+  border-top: 1px solid #222724;
+  padding: 24px var(--page-gutter);
+}
+
+.footer__bottom-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-body, Arial, sans-serif);
+  font-size: 13px;
+  color: #383636;
+}
+
+.footer__bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer__bottom-links a {
+  color: #494b4a;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer__bottom-links a:hover {
+  color: #ffffff;
+}
+
+/* Quick responsive tweak if screen gets small */
+@media (max-width: 768px) {
+  .footer__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 40px var(--page-gutter);
+  }
+  .footer__bottom-inner {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
