@@ -1,0 +1,5 @@
+Place the licensed font files here:
+  - AristaProAlternate-Regular.woff2 (+ .woff fallback)
+  - ArialGEO-Regular.woff2 (+ .woff fallback)
+
+See css/fonts.css and the project README.md for details.
