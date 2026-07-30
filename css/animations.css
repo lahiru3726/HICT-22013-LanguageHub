@@ -1,0 +1,66 @@
+/* =====================================================================
+   ANIMATIONS
+   ---------------------------------------------------------------------
+   Matches the two triggers described in the Figma prototype / screen
+   recording:
+
+     1) Page 1 (landing) plays its entrance automatically on first load,
+        after a 400ms delay, "Smart Animate", gentle easing, 1100ms.
+
+     2) Pages 2-4 replay their entrance every time the page is scrolled
+        into view / the mouse wheel enters that section, "Smart Animate",
+        gentle easing, 1000ms. js/main.js drives both triggers via an
+        IntersectionObserver + a window 'load' handler and toggles the
+        ".in-view" class used below.
+
+   Elements are tagged with data-animate="left" | "right" | "card" so
+   each side of a page can slide in from its own direction, matching
+   how the elements enter in the recorded clip.
+   ===================================================================== */
+
+[data-animate] {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity var(--duration-enter) var(--ease-gentle),
+              transform var(--duration-enter) var(--ease-gentle);
+}
+
+[data-animate="left"] {
+  transform: translateX(-60px);
+}
+
+[data-animate="right"] {
+  transform: translateX(60px);
+}
+
+[data-animate="card"] {
+  transform: translateY(40px) scale(0.94);
+  transition-delay: var(--d, 0s);
+}
+
+.page.in-view [data-animate] {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* The very first page uses the longer 1100ms / 400ms-delay load timing
+   instead of the standard 1000ms scroll-enter timing. */
+.page--landing[data-animate-page] [data-animate] {
+  transition-duration: var(--duration-load);
+  transition-delay: var(--delay-load);
+}
+
+/* Once page 1 has already played its load-in, later re-entries (e.g.
+   scrolling back up to it) should feel like every other page. */
+.page--landing.replayed [data-animate] {
+  transition-delay: 0s;
+  transition-duration: var(--duration-enter);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

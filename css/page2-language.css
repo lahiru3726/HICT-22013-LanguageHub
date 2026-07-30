@@ -1,0 +1,208 @@
+/* =====================================================================
+   PAGE 2 — PICK YOUR LANGUAGE
+   ---------------------------------------------------------------------
+   Thinking character on the left (486.73 x 534). "Pick your language"
+   title @64px bold, 2x2 grid of 191x224 cards.
+
+   IMPORTANT — reused shadow spec:
+   The brief calls out this exact shadow recipe as a value to reuse
+   anywhere the same box style shows up again in this file or in future
+   scans: color #16D889, X 0 / Y 4px, blur 13.5px, spread 5px (Figma
+   units), softened/"faded". Converted straight to CSS below and kept
+   in one place (.lang-card) so any future duplicate box can just reuse
+   this class.
+   ===================================================================== */
+
+.page--language {
+  /* Ensure this page fits within the viewport beneath the fixed navbar
+     and doesn't inherit the overly-large global .page min-height. */
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page2__content {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start; /* Align to top so tall illustrations don't push content off-screen */
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.page2__left {
+  flex-shrink: 0;
+}
+
+.page2__thinking-img {
+  width: 486.73px;
+  height: 534px;
+  object-fit: contain;
+}
+
+.page2__right {
+  flex: 1;
+  max-width: 820px; /* Increased so the showcase can grow wider */
+}
+
+.page2__right .section-title {
+  margin-bottom: 40px;
+}
+
+.page2__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 191px);
+  grid-template-rows: repeat(2, 224px);
+  gap: 24px;
+  justify-content: center; /* Ensures the 2x2 block sits perfectly in the middle */
+}
+
+
+.lang-card {
+  width: 191px;
+  height: 224px;
+  border-radius: 16px;
+  background: var(--color-white);
+  /* Figma: fill #16D889, X:0 Y:4 Blur:13.5 Spread:5 -> faded shadow */
+  box-shadow: 0 4px 13.5px 5px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 24px;
+  transition: transform 0.3s var(--ease-gentle), box-shadow 0.3s var(--ease-gentle);
+}
+
+.lang-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px 5px rgba(22, 216, 137, 0.35);
+}
+
+.lang-card__name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-green);
+}
+
+.language-showcase {
+  --language-accent: #E0357E;
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(248,250,252,0.92));
+  border: 1px solid rgba(224, 53, 126, 0.12);
+  box-shadow: 0 28px 70px rgba(15, 23, 42, 0.08);
+  width: 100%;
+  max-width: 820px; /* allow larger showcase */
+}
+
+.language-showcase__visual {
+  min-height: 420px; /* taller visual for larger showcase */
+  border-radius: 18px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../assets/IELTS-01.svg');
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.55);
+  opacity: 1;
+  will-change: opacity, transform;
+  transition: opacity 0.9s var(--ease-gentle), transform 0.9s var(--ease-gentle);
+}
+
+.language-showcase__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.language-showcase__eyebrow {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.language-showcase__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  line-height: 1.05;
+  color: var(--language-accent);
+  opacity: 1;
+  transform: translateY(0);
+  will-change: transform, opacity;
+  transition: opacity 0.75s var(--ease-gentle), transform 0.75s var(--ease-gentle);
+}
+
+.language-showcase__description {
+  margin: 0;
+  color: #475569;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  opacity: 1;
+  transform: translateY(0);
+  will-change: transform, opacity;
+  transition: opacity 0.75s var(--ease-gentle), transform 0.75s var(--ease-gentle);
+}
+
+.language-showcase__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.language-showcase__chip {
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: #ffffff;
+  color: #334155;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.language-showcase__chip:hover,
+.language-showcase__chip:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.12);
+}
+
+.language-showcase__chip.is-active {
+  background: var(--language-accent);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+@media (max-width: 900px) {
+  .language-showcase {
+    padding: 18px;
+  }
+
+  .language-showcase__visual {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .language-showcase__title {
+    font-size: 1.7rem;
+  }
+
+  .language-showcase__description {
+    font-size: 0.92rem;
+  }
+
+  .language-showcase__chip {
+    padding: 9px 12px;
+    font-size: 0.9rem;
+  }
+}

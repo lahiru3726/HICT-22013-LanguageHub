@@ -17,8 +17,6 @@
 <link rel="stylesheet" href="css/footer.css">
 <link rel="stylesheet" href="css/animations.css">
 <link rel="stylesheet" href="css/responsive.css">
-<link rel="stylesheet" href="css/language-section.css">
-
 </head>
 <body>
 
@@ -43,10 +41,10 @@
           </svg>
         </button>
         <ul class="navbar__dropdown-menu" id="langMenu">
-          <li><a href="#" class="navbar__link">Japanese</a></li>
-          <li><a href="#" class="navbar__link">Korean</a></li>
-          <li><a href="#" class="navbar__link">Italy</a></li>
-          <li><a href="#" class="navbar__link">IELTS</a></li>
+          <li><a href="#page-2" class="navbar__link" data-language-link="japanese">Japanese</a></li>
+          <li><a href="#page-2" class="navbar__link" data-language-link="korean">Korean</a></li>
+          <li><a href="#page-2" class="navbar__link" data-language-link="italy">Italian</a></li>
+          <li><a href="#page-2" class="navbar__link" data-language-link="ielts">IELTS</a></li>
         </ul>
       </div>
     </nav>
@@ -138,319 +136,33 @@
   <!-- ============================================================
        PAGE 2 — PICK YOUR LANGUAGE.css
        ============================================================ -->
-  <!-- <section class="page page--language" id="page-2" data-animate-page>
+  <section class="page page--language" id="page-2" data-animate-page>
     <div class="page2__content">
       <div class="page2__left" data-animate="left">
         <img src="assets/normal-thinking-image.svg" alt="Character thinking which language to pick" class="page2__thinking-img">
       </div>
       <div class="page2__right" data-animate="right">
         <h2 class="section-title">Pick your language</h2>
-        <div class="page2__grid">
-          <div class="lang-card" data-animate="card" style="--d:0s">
-            <span class="lang-card__name">Japanese</span>
+        <div class="language-showcase" data-language-showcase>
+          <div class="language-showcase__visual" data-language-visual></div>
+          <div class="language-showcase__body">
+            <p class="language-showcase__eyebrow">Featured language</p>
+            <h3 class="language-showcase__title" data-language-title>IELTS Exam</h3>
+            <p class="language-showcase__description" data-language-description>
+              A modern learning path designed for students who want structure, confidence, and measurable progress.
+            </p>
+            <div class="language-showcase__options" role="list">
+              <button class="language-showcase__chip is-active" type="button" data-language-option="ielts" aria-pressed="true">IELTS</button>
+              <button class="language-showcase__chip" type="button" data-language-option="japanese" aria-pressed="false">Japanese</button>
+              <button class="language-showcase__chip" type="button" data-language-option="korean" aria-pressed="false">Korean</button>
+              <button class="language-showcase__chip" type="button" data-language-option="italy" aria-pressed="false">Italian</button>
+            </div>
           </div>
-          <div class="lang-card" data-animate="card" style="--d:0.08s">
-            <span class="lang-card__name">Korean</span>
-          </div>
-          <div class="lang-card" data-animate="card" style="--d:0.16s">
-            <span class="lang-card__name">Italian</span> 
-          </div>
-          <div class="lang-card" data-animate="card" style="--d:0.24s">
-            <span class="lang-card__name">IELTS</span>
-          </div>
-          <br>
-          <br>
         </div>
       </div>
     </div>
-  </section> -->
-
-  <!-- <main class="language-section-container">
-    <section class="language-section" data-language="ielts" data-active="true">
-        <div class="language-section-wrapper">
-            <div class="language-illustration">
-                <svg class="illustration-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-                    <img src="assets/ielts-o1.svg" alt="IELTS" width="400" height="500"/>
-                    <rect width="400" height="500" fill="#FFF5F0"/>
-                </svg>
-            </div>
-
-            <div class="language-content">
-                <h1 class="language-title">IELTS Exam</h1>
-                
-                <div class="language-description">
-                    <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach. Through continuous evaluation and proven results across multiple standards, we have built a trusted learning environment for students of all ages. Learn with confidence, trust the process, and let us guide you toward your goals with a system designed for success.</p>
-
-                    <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities. By maintaining high standards, innovative teaching methods, and a student-focused approach, we continue to help learners achieve meaningful results.</p>
-
-                    <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
-                </div>
-
-                <button class="cta-button">Let's Learn</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="language-section" data-language="japanese">
-        <div class="language-section-wrapper">
-            <div class="language-illustration">
-                <svg class="illustration-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-                    <img src="assets/japanese-o1.svg" alt="Japanese" width="400" height="500"/>
-                    <rect width="400" height="500" fill="#FFE8E8"/>
-                </svg>
-            </div>
-
-            <div class="language-content">
-                <h1 class="language-title">Japanese</h1>
-                
-                <div class="language-description">
-                    <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach. Through continuous evaluation and proven results across multiple standards, we have built a trusted learning environment for students of all ages. Learn with confidence, trust the process, and let us guide you toward your goals with a system designed for success.</p>
-
-                    <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities. By maintaining high standards, innovative teaching methods, and a student-focused approach, we continue to help learners achieve meaningful results.</p>
-
-                    <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
-                </div>
-
-                <button class="cta-button">Let's Learn</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="language-section" data-language="korean">
-        <div class="language-section-wrapper">
-            <div class="language-illustration">
-                <svg class="illustration-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-                    <img src="assets/korean-o1.svg" alt="Korean" width="400" height="500"/>
-                    <rect width="400" height="500" fill="#E8F5F0"/>
-                </svg>
-            </div>
-
-            <div class="language-content">
-                <h1 class="language-title">Korean</h1>
-                
-                <div class="language-description">
-                    <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach. Through continuous evaluation and proven results across multiple standards, we have built a trusted learning environment for students of all ages. Learn with confidence, trust the process, and let us guide you toward your goals with a system designed for success.</p>
-
-                    <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities. By maintaining high standards, innovative teaching methods, and a student-focused approach, we continue to help learners achieve meaningful results.</p>
-
-                    <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
-                </div>
-
-                <button class="cta-button">Let's Learn</button>
-            </div>
-        </div>
-    </section>
-
-    <section class="language-section" data-language="italian">
-        <div class="language-section-wrapper">
-            <div class="language-illustration">
-                <svg class="illustration-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-                    <img src="assets/italian-o1.svg" alt="Italian" width="400" height="500"/>
-                    <rect width="400" height="500" fill="#E0F4FF"/>
-                </svg>
-            </div>
-
-            <div class="language-content">
-                <h1 class="language-title">Italian</h1>
-                
-                <div class="language-description">
-                    <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach. Through continuous evaluation and proven results across multiple standards, we have built a trusted learning environment for students of all ages. Learn with confidence, trust the process, and let us guide you toward your goals with a system designed for success.</p>
-
-                    <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities. By maintaining high standards, innovative teaching methods, and a student-focused approach, we continue to help learners achieve meaningful results.</p>
-
-                    <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
-                </div>
-
-                <button class="cta-button">Let's Learn</button>
-            </div>
-        </div>
-    </section>
-  </main> -->
-
-  <!-- <main class="language-section-container">
-        <section class="language-section" data-language="ielts" data-active="true">
-            <div class="language-section-wrapper">
-                <div class="language-illustration">
-                    <img src="assets/IELTS-01.svg" alt="IELTS Exam Illustration" class="illustration-svg">
-                </div>
-
-                <div class="language-content">
-                    <h1 class="language-title">IELTS Exam</h1>
-                    
-                    <div class="language-description">
-                        <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach. Through continuous evaluation and proven results across multiple standards, we have built a trusted learning environment for students of all ages. Learn with confidence, trust the process, and let us guide you toward your goals with a system designed for success.</p>
-
-                        <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities. By maintaining high standards, innovative teaching methods, and a student-focused approach, we continue to help learners achieve meaningful results.</p>
-
-                        <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
-                    </div>
-
-                    <button class="cta-button">Let's Learn</button>
-                </div>
-            </div>
-        </section>
-
-        <section class="language-section" data-language="japanese">
-            <div class="language-section-wrapper">
-                <div class="language-illustration">
-                    <img src="assets/japanese-01.svg" alt="Japanese Illustration" class="illustration-svg">
-                </div>
-
-                <div class="language-content">
-                    <h1 class="language-title">Japanese</h1>
-                    
-                    <div class="language-description">
-                        <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach. Through continuous evaluation and proven results across multiple standards, we have built a trusted learning environment for students of all ages. Learn with confidence, trust the process, and let us guide you toward your goals with a system designed for success.</p>
-
-                        <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities. By maintaining high standards, innovative teaching methods, and a student-focused approach, we continue to help learners achieve meaningful results.</p>
-
-                        <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
-                    </div>
-
-                    <button class="cta-button">Let's Learn</button>
-                </div>
-            </div>
-        </section>
-
-        <section class="language-section" data-language="korean">
-            <div class="language-section-wrapper">
-                <div class="language-illustration">
-                    <img src="assets/korean-01.svg" alt="Korean Illustration" class="illustration-svg">
-                </div>
-
-                <div class="language-content">
-                    <h1 class="language-title">Korean</h1>
-                    
-                    <div class="language-description">
-                        <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach. Through continuous evaluation and proven results across multiple standards, we have built a trusted learning environment for students of all ages. Learn with confidence, trust the process, and let us guide you toward your goals with a system designed for success.</p>
-
-                        <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities. By maintaining high standards, innovative teaching methods, and a student-focused approach, we continue to help learners achieve meaningful results.</p>
-
-                        <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
-                    </div>
-
-                    <button class="cta-button">Let's Learn</button>
-                </div>
-            </div>
-        </section>
-
-        <section class="language-section" data-language="italy">
-            <div class="language-section-wrapper">
-                <div class="language-illustration">
-                    <img src="assets/italy-01.svg" alt="Italy Illustration" class="illustration-svg">
-                </div>
-
-                <div class="language-content">
-                    <h1 class="language-title">Italy</h1>
-                    
-                    <div class="language-description">
-                        <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach. Through continuous evaluation and proven results across multiple standards, we have built a trusted learning environment for students of all ages. Learn with confidence, trust the process, and let us guide you toward your goals with a system designed for success.</p>
-
-                        <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities. By maintaining high standards, innovative teaching methods, and a student-focused approach, we continue to help learners achieve meaningful results.</p>
-
-                        <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
-                    </div>
-
-                    <button class="cta-button">Let's Learn</button>
-                </div>
-            </div>
-        </section>
-    </main> -->
-
-  <main class="language-section-container">
-        <!-- IELTS Section -->
-        <section class="language-section" data-language="ielts" data-active="true" style="background-image: url('assets/IELTS-01.svg');">
-            <div class="language-section-wrapper">
-                <!-- Left Side - Illustration Background -->
-                <div class="language-illustration"></div>
-
-                <!-- Right Side - Content -->
-                <div class="language-content">
-                    <h1 class="language-title">IELTS Exam</h1>
-                    
-                    <div class="language-description">
-                        <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach. Through continuous evaluation and proven results across multiple standards, we have built a trusted learning environment for students of all ages. Learn with confidence, trust the process, and let us guide you toward your goals with a system designed for success.</p>
-
-                        <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities. By maintaining high standards, innovative teaching methods, and a student-focused approach, we continue to help learners achieve meaningful results.</p>
-
-                        <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
-                    </div>
-
-                    <button class="cta-button">Let's Learn</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Japanese Section -->
-        <section class="language-section" data-language="japanese" style="background-image: url('assets/japanese-01.svg');">
-            <div class="language-section-wrapper">
-                <!-- Left Side - Illustration Background -->
-                <div class="language-illustration"></div>
-
-                <!-- Right Side - Content -->
-                <div class="language-content">
-                    <h1 class="language-title">Japanese</h1>
-                    
-                    <div class="language-description">
-                        <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach. Through continuous evaluation and proven results across multiple standards, we have built a trusted learning environment for students of all ages. Learn with confidence, trust the process, and let us guide you toward your goals with a system designed for success.</p>
-
-                        <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities. By maintaining high standards, innovative teaching methods, and a student-focused approach, we continue to help learners achieve meaningful results.</p>
-
-                        <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
-                    </div>
-
-                    <button class="cta-button">Let's Learn</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Korean Section -->
-        <section class="language-section" data-language="korean" style="background-image: url('assets/korean-01.svg');">
-            <div class="language-section-wrapper">
-                <!-- Left Side - Illustration Background -->
-                <div class="language-illustration"></div>
-
-                <!-- Right Side - Content -->
-                <div class="language-content">
-                    <h1 class="language-title">Korean</h1>
-                    
-                    <div class="language-description">
-                        <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach. Through continuous evaluation and proven results across multiple standards, we have built a trusted learning environment for students of all ages. Learn with confidence, trust the process, and let us guide you toward your goals with a system designed for success.</p>
-
-                        <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities. By maintaining high standards, innovative teaching methods, and a student-focused approach, we continue to help learners achieve meaningful results.</p>
-
-                        <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
-                    </div>
-
-                    <button class="cta-button">Let's Learn</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Italy Section -->
-        <section class="language-section" data-language="italy" style="background-image: url('assets/italy-01.svg');">
-            <div class="language-section-wrapper">
-                <!-- Left Side - Illustration Background -->
-                <div class="language-illustration"></div>
-
-                <!-- Right Side - Content -->
-                <div class="language-content">
-                    <h1 class="language-title">Italy</h1>
-                    
-                    <div class="language-description">
-                        <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach. Through continuous evaluation and proven results across multiple standards, we have built a trusted learning environment for students of all ages. Learn with confidence, trust the process, and let us guide you toward your goals with a system designed for success.</p>
-
-                        <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities. By maintaining high standards, innovative teaching methods, and a student-focused approach, we continue to help learners achieve meaningful results.</p>
-
-                        <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
-                    </div>
-
-                    <button class="cta-button">Let's Learn</button>
-                </div>
-            </div>
-        </section>
-    </main>
-    <!-- ============================================================
+  </section>
+  <!-- ============================================================
        PAGE 3 — TRUST THE PROCESS
        ============================================================ -->
   <section class="page page--trust" id="page-3" data-animate-page>
@@ -562,6 +274,5 @@
 </main>
 
 <script src="js/main.js"></script>
-<script src="language-section.js"></script>
 </body>
 </html>

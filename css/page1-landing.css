@@ -1,3 +1,12 @@
+/* =====================================================================
+   PAGE 1 — LANDING
+   ---------------------------------------------------------------------
+   Left to right: spectacles svg (with eyes that track the cursor) ->
+   "Lan hub" wordmark @170px -> tagline @20px Arista Pro Alternate ->
+   body copy @15px Arial GEO -> CTA button. Waving character on the
+   right, 413.2 x 542.31.
+   ===================================================================== */
+
 .page--landing {
   justify-content: center;
 }
@@ -7,7 +16,8 @@
   max-width: 1440px;
   margin: 0 auto;
   display: flex;
-   justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   gap: 40px;
   margin-top: -70px;
 }
@@ -16,10 +26,10 @@
   max-width: 640px;
 }
 
-.page1__spectacles{
-    width: 500px;
+.page1__spectacles {
+  width: 500px;
   margin-bottom: -200px;
-  margin-left: -75px;
+  margin-left: -75px; /* CHANGED: Negative margin pulls the text up closer */
 }
 
 .page1__spectacles svg {
@@ -28,6 +38,9 @@
   display: block;
 }
 
+/* The two white ellipses (eye-white-left / eye-white-right) are moved
+   via inline transform by js/main.js, tracking the cursor position
+   anywhere on the page — "eyes looking at the cursor" effect. */
 #eye-white-left,
 #eye-white-right {
   transition: transform 0.08s linear;
@@ -38,11 +51,10 @@
   font-weight: 700;
   font-size: 170px;
   line-height: 1;
-   color: var(--color-black);
+  color: var(--color-black);
   margin-top: 0; /* ADDED: Removes the massive default browser gap above the title */
   margin-left: -14px;
 }
-
 .page1__title-hub {
   color: var(--color-orange);
 }
