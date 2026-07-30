@@ -1,0 +1,107 @@
+/* Base Container Layout */
+.language-slider-container {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 160px); /* Adjust based on navbar/footer height */
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+/* Slide Transition Logic */
+.lang-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+  transform: translateX(20px); /* Subtle slide effect */
+}
+
+.lang-slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(0);
+  /* transform: translateX(0); */
+}
+
+/* Left Illustration / Background Image */
+.slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: left center;
+
+  /* Creates the soft fade transition into the white background on the right */
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 85%);
+  mask-image: linear-gradient(to right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 85%);
+  
+  z-index: 1;
+}
+
+/* Content Area (Right Side) */
+.slide-content {
+  position: relative;
+  z-index: 2; /* Ensures text stays clickable and rendered over the background image */
+  width: 50%;
+  max-width: 650px;
+  padding: 40px 80px 40px 20px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+/* Typography & Titles matching UI designs */
+.lang-title {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  font-family: 'Fredoka', 'Comfortaa', sans-serif; /* Soft rounded typography */
+}
+
+.title-japanese { color: #d63031; }
+.title-korean   { color: #3b6e4c; }
+.title-italy    { color: #008080; }
+.title-ielts    { color: #d63384; }
+
+.lang-description {
+  color: #666666;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  max-width: 550px;
+}
+
+.lang-description p {
+  margin-bottom: 14px;
+}
+
+/* Green Action Button */
+.btn-learn {
+  display: inline-block;
+  background-color: #00e676;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 12px 36px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-learn:hover {
+  background-color: #00c853;
+  transform: translateY(-2px);
+}

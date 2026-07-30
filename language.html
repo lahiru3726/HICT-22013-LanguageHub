@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Languages - Lan Hub</title>
+  <link rel="stylesheet" href="css/language.css">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/page1-landing.css">
+  <link rel="stylesheet" href="css/page2-language.css">
+  <link rel="stylesheet" href="css/page3-trust.css">
+  <link rel="stylesheet" href="css/page4-about.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="languages-page">
+
+  <!-- Shared Navbar -->
+
+<header class="navbar" id="navbar">
+  <div class="navbar__inner">
+    <a href="#page-1" class="navbar__logo">
+      <img src="assets/main-logo.jpg" alt="Lan Hub logo">
+    </a>
+    <nav class="navbar__links">
+      <a href="index.html#page-1" class="navbar__link">Home</a>
+      <a href="index.html#page-4" class="navbar__link">About</a>
+      <a href="index.html#footer" class="navbar__link">Share your Knowledge</a>
+
+      <div class="navbar__dropdown" id="langDropdown">
+        <button class="navbar__link navbar__link--dropdown" id="langToggle" aria-haspopup="true" aria-expanded="false">
+          Languages
+          <svg class="navbar__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <ul class="navbar__dropdown-menu" id="langMenu">
+          <li><a href="language.html#japanese" class="navbar__link">Japanese</a></li>
+          <li><a href="language.html#korean" class="navbar__link">Korean</a></li>
+          <li><a href="language.html#italy" class="navbar__link">Italy</a></li>
+          <li><a href="language.html#ielts" class="navbar__link">IELTS</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="navbar__accent-line"></div>
+</header>
+
+  <!-- Full-Screen Language Slider Container -->
+  <main class="language-slider-container">
+
+    <!-- Japanese Slide -->
+    <div class="lang-slide" id="japanese">
+      <div class="slide-bg" style="background-image: url('assets/japanease-01.png');"></div>
+      <div class="slide-content">
+        <h1 class="lang-title title-japanese">Japanese</h1>
+        <div class="lang-description">
+          <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach.</p>
+          <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities.</p>
+          <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
+        </div>
+        <a href="#learn" class="btn-learn">Let's Learn</a>
+      </div>
+    </div>
+
+    <!-- Korean Slide -->
+    <div class="lang-slide" id="korean">
+      <div class="slide-bg" style="background-image: url('assets/korean-01.png');"></div>
+      <div class="slide-content">
+        <h1 class="lang-title title-korean">Korean</h1>
+        <div class="lang-description">
+          <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach.</p>
+          <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities.</p>
+          <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
+        </div>
+        <a href="#learns" class="btn-learn">Let's Learn</a>
+      </div>
+    </div>
+
+    <!-- Italy Slide -->
+    <div class="lang-slide" id="italy">
+      <div class="slide-bg" style="background-image: url('assets/italy-01.png');"></div>
+      <div class="slide-content">
+        <h1 class="lang-title title-italy">Italy</h1>
+        <div class="lang-description">
+          <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach.</p>
+          <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities.</p>
+          <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
+        </div>
+        <a href="#learn" class="btn-learn">Let's Learn</a>
+      </div>
+    </div>
+
+    <!-- IELTS Slide -->
+    <div class="lang-slide" id="ielts">
+      <div class="slide-bg" style="background-image: url('assets/IELTS-01.png');"></div>
+      <div class="slide-content">
+        <h1 class="lang-title title-ielts">IELTS Exam</h1>
+        <div class="lang-description">
+          <p>Our teaching system has been recognized and appreciated by respected organizations, institutions, and universities, reflecting the quality and effectiveness of our learning approach.</p>
+          <p>Our commitment to excellence is reflected in the trust placed in us by respected educational bodies and learning communities.</p>
+          <p>Every lesson, resource, and learning experience is carefully designed to inspire growth, build confidence, and create a pathway to lifelong success.</p>
+        </div>
+        <a href="#learn" class="btn-learn">Let's Learn</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Shared Footer -->
+
+  <footer class="footer" id="footer">
+    <div class="footer__accent-line"></div>
+    <div class="footer__inner">
+      
+      <!-- Column 1: Brand details & Socials -->
+      <div class="footer__col footer__col--brand">
+        <div class="footer__logo-wrap">
+          <img src="assets/main-logo.jpg" alt="Lan Hub logo" class="footer__logo">
+        </div>
+        <p class="footer__brand-desc">Your friendly neighborhood learning companion for mastering global languages.</p>
+      </div>
+
+      <!-- Column 2: Navigation Links -->
+      <div class="footer__col footer__col--links">
+        <span class="footer__col-title">Explore</span>
+        <a href="#page-1">Home</a>
+        <a href="#page-4">About Us</a>
+        <a href="#footer">Share your Knowledge</a>
+      </div>
+
+      <!-- Column 3: Languages Links (Fixed Typo) -->
+      <div class="footer__col footer__col--links">
+        <span class="footer__col-title">Languages</span>
+        <a href="#">Italian</a> <!-- FIXED: Changed from Italy to Italian -->
+        <a href="#">Japanese</a>
+        <a href="#">Korean</a>
+        <a href="#">IELTS Prep</a>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright Bar -->
+    <div class="footer__bottom">
+      <div class="footer__bottom-inner">
+        <span>&copy; 2026 Lan Hub. All rights reserved.</span>
+        <div class="footer__bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- <footer class="site-footer">
+    <div class="footer-left">
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#share">Share your Knowledge</a></li>
+      </ul>
+      <div class="footer-sub-links">
+        <h4>Languages</h4>
+        <ul>
+          <li><a href="languages.html#italy">Italy</a></li>
+          <li><a href="languages.html#japanese">Japanese</a></li>
+          <li><a href="languages.html#korean">Korean</a></li>
+          <li><a href="languages.html#ielts">IELTS</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-right">
+      <img src="images/logo.png" alt="Lan Hub Logo">
+    </div>
+  </footer> -->
+
+  <script src="js/main.js"></script>
+</body>
+</html>
