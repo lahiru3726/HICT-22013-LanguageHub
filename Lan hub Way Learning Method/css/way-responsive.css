@@ -1,0 +1,67 @@
+@media (max-width: 1024px) {
+  .way-header__title { font-size: 44px; }
+  .progress-bar { width: 200px; }
+  .way-stage { width: 260px; }
+  .way-stage__title { font-size: 26px; }
+  .way-prop { width: 100px; }
+}
+
+@media (max-width: 768px) {
+  .way-header__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .progress-panel {
+    flex-wrap: wrap;
+  }
+
+  .progress-panel__details--right {
+    margin-left: 82px;
+  }
+
+  .progress-bar { width: 160px; }
+
+  .way-stage {
+    width: 220px;
+    margin: 0 auto;
+  }
+
+  .way-row {
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 50px !important;
+  }
+
+  .way-row--first { margin-top: 40px !important; }
+
+  .way-row--left .way-stage__card,
+  .way-row--right .way-stage__card {
+    align-items: center;
+    text-align: center;
+  }
+
+  .way-path-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .way-path-svg,
+  .way-prop { display: none; }
+
+  .way-traveler { display: none; }
+
+  .way-stages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .way-header__title { font-size: 34px; }
+  .profile-chip__popover { min-width: 220px; }
+  .progress-panel__details--right { margin-left: 0; width: 100%; }
+}
