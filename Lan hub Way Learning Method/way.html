@@ -3,9 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LanguageHub</title>
+    <title>Lan Hub Learning Method</title>
+
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="css/way.css">
+    <link rel="stylesheet" href="css/way-responsive.css"> 
+    <link rel="stylesheet" href="css/animations.css">    
+
 </head>
+
 <body>
+    //Navigation bar
+    <header class="navbar" id="navbar">
+        <div class="navbar__inner">
+            <a href="../index.html" class="navbar__logo">
+      <img src="../assets/main-logo.jpg" alt="Lan Hub logo">
+    </a>
+     <nav class="navbar__links">
+      <a href="../index.html#page-1" class="navbar__link">Home</a>
+      <a href="../index.html#page-4" class="navbar__link">About</a>
+      <a href="../index.html#footer" class="navbar__link">Share your Knowledge</a>
+
+      <div class="navbar__dropdown" id="langDropdown">
+        <button class="navbar__link navbar__link--dropdown" id="langToggle" aria-haspopup="true" aria-expanded="false">
+             Languages
+          <svg class="navbar__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        //drop down menu
+        <ul class="navbar__dropdown-menu" id="langMenu">
+          <li><a href="way.html?lang=japanese">Japanese</a></li>
+          <li><a href="way.html?lang=korean">Korean</a></li>
+          <li><a href="way.html?lang=italian">Italy</a></li>
+          <li><a href="way.html?lang=ielts">IELTS</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="navbar__accent-line">
+        </div> 
+
     
 </body>
 </html>
