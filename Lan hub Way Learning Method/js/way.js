@@ -322,3 +322,56 @@ function updateProgressNumbers(data, completedStages, totalLessons, pointsOverri
     const el = document.getElementById(id);
     if (el) el.textContent = val;
   }
+
+  //Profile panel — name/avatar initials
+  function initProfilePanel(data, totalLessons) {
+    const state = LanHubState.getState();
+    const initials = state.profile.name.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase();
+    setText('mainAvatar', initials);
+    setText('chipAvatar', initials);
+    setText('mainName', state.profile.name);
+    setText('popName', state.profile.name);
+
+//folding and unfolding process
+function initFoldOnScroll() {
+    const sentinel = document.getElementById('foldSentinel');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          document.body.classList.toggle('is-docked', !entry.isIntersecting && entry.boundingClientRect.top < 0);
+        });
+      },
+      { threshold: 0 }
+    );
+    observer.observe(sentinel);
+  }
+
+// Stayed time counting
+function initStayedTimer() {
+    let secondsSinceSave = 0;
+    const tick = setInterval(() => {
+      secondsSinceSave += 1;
+      const totalNow = LanHubState.getStayedSeconds(LANG) + secondsSinceSave;
+      setText('mainTime', LanHubState.formatStayedTime(totalNow));
+      setText('popTime', LanHubState.formatStayedTime(totalNow));
+
+      if (secondsSinceSave >= 5) {
+        LanHubState.addStayedSeconds(LANG, secondsSinceSave);
+        secondsSinceSave = 0;
+      }
+    }, 1000);
+
+    window.addEventListener('pagehide', () => {
+      if (secondsSinceSave > 0) LanHubState.addStayedSeconds(LANG, secondsSinceSave);
+      clearInterval(tick);
+    });
+  }
+
+ function debounce(fn, wait) {
+    let t;
+    return (...args) => {
+      clearTimeout(t);
+      t = setTimeout(() => fn(...args), wait);
+    };
+  }
+}})();
