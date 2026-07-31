@@ -73,8 +73,62 @@
 </header>
 <main id="wayMain">
     //Landing page heading elemts with prograss bar
-    
+     <section class="way-header" class="page page--landing">
+    <div class="way-header__inner">
+      <div class="way-header__titles">
+        <h1 class="way-header__title" id="courseTitle">Lan hub Learning</h1>
+        <span class="way-header__subtitle" id="courseSubtitle">Lesson series</span>
+      </div>
+       <div class="progress-panel" id="progressPanel">
+        <div class="progress-panel__avatar-wrap">
+          <span class="progress-panel__avatar" id="mainAvatar">GH</span>
+        </div>
+         <div class="progress-panel__details">
+          <div class="progress-panel__item progress-panel__item--name">
+            <span class="progress-panel__value" id="mainName">Gayantha Hashan</span>
+        </div>
+        <div class="progress-panel__item">
+            <span class="progress-panel__label">Points :</span>
+            <span class="points-pill"><span class="points-pill__coin"></span><span id="mainPoints">0</span></span>
+          </div>
+        <div class="progress-panel__item progress-panel__item--bar">
+            <span class="progress-panel__label">Progress :</span>
+            <span class="progress-bar"><span class="progress-bar__fill" id="mainProgressFill"></span></span>
+          </div>
+          </div>
+          <div class="progress-panel__details progress-panel__details--right">
+          <div class="progress-panel__item">
+            <span class="progress-panel__label">Status</span>
+          </div>
+          <div class="progress-panel__item">
+            <span class="progress-panel__label" id="mainStatus">0% to go</span>
+          </div>
+          <div class="progress-panel__item">
+            <span class="progress-panel__label">Stayed Time :</span>
+            <span class="progress-panel__value progress-panel__value--time" id="mainTime">0:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  //Js knows the exact instant the progress panel has scrolled out of view to trigger the fold animation.
+ <div id="foldSentinel" aria-hidden="true"></div>
 
+ <section class="way-path-section">
+    <svg id="pathSvg" class="way-path-svg" preserveAspectRatio="none">
+      <path id="pathGray" class="way-path way-path--gray"></path>
+      <path id="pathGreen" class="way-path way-path--green"></path>
+    </svg>
+
+<div class="way-props" id="propsLayer"></div>
+    <div class="way-stages" id="stagesLayer"></div>
+    <img id="traveler" class="way-traveler" src="assets/way/mini-character.svg" alt="Your progress marker">
+  </section>
+
+</main>
+
+<script src="js/state.js"></script>
+<script src="js/way.js"></script>
 
 </body>
 </html>
