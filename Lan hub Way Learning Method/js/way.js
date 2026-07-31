@@ -184,3 +184,141 @@
     propsLayerEl.appendChild(img);
   }
 
+//measure real node positions, draw the winding path, and place decorative props relative to the measurements.
+function layoutAndDrawPath() {
+    if (!sectionEl || window.innerWidth <= 768) return; // path hidden on mobile
+
+    const sectionRect = sectionEl.getBoundingClientRect();
+
+    nodeRefs.forEach((ref) => {
+      const r = ref.platformImg.getBoundingClientRect();
+      ref.cx = r.left + r.width / 2 - sectionRect.left;
+      ref.cy = r.top + r.height / 2 - sectionRect.top;
+      ref.platformTop = r.top - sectionRect.top;
+    });
+
+    const sectionHeight = sectionEl.scrollHeight;
+    const sectionWidth = sectionEl.clientWidth;
+    svgEl.setAttribute('width', sectionWidth);
+    svgEl.setAttribute('height', sectionHeight);
+    svgEl.style.height = sectionHeight + 'px';
+
+    let d = '';
+    nodeRefs.forEach((ref, i) => {
+      if (i === 0) {
+        d += `M ${ref.cx} ${ref.cy} `;
+      } else {
+        const prev = nodeRefs[i - 1];
+        const midY = (prev.cy + ref.cy) / 2;
+        d += `C ${prev.cx} ${midY}, ${ref.cx} ${midY}, ${ref.cx} ${ref.cy} `;
+      }
+    });
+
+    grayPathEl.setAttribute('d', d);
+    greenPathEl.setAttribute('d', d);
+
+    const totalLength = greenPathEl.getTotalLength();
+    greenPathEl.dataset.totalLength = totalLength;
+    greenPathEl.style.strokeDasharray = totalLength;
+
+    // Position decorative props just beside their reference node, at the same height as the platform (not floating above it)
+
+    document.querySelectorAll('.way-prop').forEach((img) => {
+      const idx = Number(img.dataset.nearIndex);
+      const ref = nodeRefs[idx];
+      if (!ref) return;
+      const side = img.dataset.side;
+      const offsetX = side === 'left' ? -130 : 130;
+      img.style.left = ref.cx + offsetX + 'px';
+      img.style.top = ref.cy + 'px';
+      img.style.transform = 'translate(-50%, -50%)';
+    });
+    // Re-apply whatever unlock state is currently active so the freshly measured traveler/path positions line up immediately.
+
+    if (stagesData) applyVisualState(currentCompletedCache, currentTotalCache);
+  }
+  
+//Render stage — unlock classes, traveler position, green path, progress panel numbers.
+  let currentCompletedCache = [];
+  let currentTotalCache = 1;
+
+  function renderState(data, completedStages, totalLessons, pointsOverride) {
+    currentCompletedCache = completedStages;
+    currentTotalCache = totalLessons;
+    applyVisualState(completedStages, totalLessons);
+    updateProgressNumbers(data, completedStages, totalLessons, pointsOverride);
+  }
+
+  function applyVisualState(completedStages, totalLessons) {
+    nodeRefs.forEach((ref) => {
+      const id = ref.stage.id;
+      const unlocked = id === 1 || completedStages.includes(id - 1) || (ref.stage.isFinal && completedStages.length >= totalLessons);
+      ref.node.classList.toggle('is-unlocked', !!unlocked);
+
+      if (ref.btn) {
+        const isDone = completedStages.includes(id);
+        if (!unlocked) {
+          ref.btn.textContent = 'Locked';
+          ref.btn.classList.add('is-locked');
+          ref.btn.removeAttribute('href');
+        } else {
+          ref.btn.textContent = isDone ? 'Review' : 'Start';
+          ref.btn.classList.remove('is-locked');
+          ref.btn.href = `lesson.html?lang=${LANG}&stage=${id}`;
+        }
+      }
+    });
+
+    document.querySelectorAll('.way-prop').forEach((img) => {
+      const idx = Number(img.dataset.nearIndex);
+      const ref = nodeRefs[idx];
+      if (!ref) return;
+      const unlocked = ref.node.classList.contains('is-unlocked');
+      img.classList.toggle('is-unlocked', unlocked);
+    });
+
+    const currentIndex = Math.min(completedStages.length, nodeRefs.length - 1);
+    const currentRef = nodeRefs[currentIndex];
+    if (currentRef && currentRef.cx) {
+      travelerEl.style.left = currentRef.cx + 'px';
+      // Stand on the platform's own top edge (measured live), plus a
+      // small tunable nudge (--traveler-y-offset in way.css) rather
+      // than a guessed fixed offset from the platform's center.
+      travelerEl.style.top = `calc(${currentRef.platformTop}px + var(--traveler-y-offset, 10px))`;
+    }
+
+    if (greenPathEl.dataset.totalLength) {
+      const totalLength = Number(greenPathEl.dataset.totalLength);
+      const fraction = totalLessons ? Math.min(1, completedStages.length / totalLessons) : 0;
+      greenPathEl.style.strokeDashoffset = totalLength * (1 - fraction);
+    }
+  }
+
+  // Progress Panel Numbers counting
+function updateProgressNumbers(data, completedStages, totalLessons, pointsOverride) {
+    const state = LanHubState.getState();
+    const points = pointsOverride != null ? pointsOverride : state.points;
+    const percent = totalLessons ? Math.round((completedStages.length / totalLessons) * 100) : 0;
+    const stayed = LanHubState.getStayedSeconds(LANG);
+    const timeStr = LanHubState.formatStayedTime(stayed);
+
+    setText('mainPoints', points);
+    setText('popPoints', points);
+    setText('mainStatus', `${100 - percent}% to go`);
+    setText('popStatus', `${100 - percent}% to go`);
+    setText('mainTime', timeStr);
+    setText('popTime', timeStr);
+
+    const fillPct = percent === 100 ? 100 : percent;
+    document.getElementById('mainProgressFill').style.width = fillPct + '%';
+    document.getElementById('popProgressFill').style.width = fillPct + '%';
+
+    if (percent >= 100) {
+      document.getElementById('mainProgressFill').style.background = 'var(--color-green)';
+    }
+  }
+
+  function setText(id, val) {
+    const el = document.getElementById(id);
+    if (el) el.textContent = val;
+  }
