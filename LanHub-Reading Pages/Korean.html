@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LanHub - Korean Language Course</title>
+
+<link rel="stylesheet" href="./book.css">
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- Header -->
+<div class="header">
+    <div class="logo">
+        <img src="./main logo .png" alt="logo">
+    </div>
+
+    <nav class="Navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Share your Knowledge</a>
+        <a href="#">Languages</a>
+    </nav>
+</div>
+
+<hr class="divider">
+
+<!-- Course Bar -->
+<div class="course-bar">
+    <div class="course-title">
+        <h1>Korean Language</h1>
+        <span>EPS-TOPIK & Basic Grammar Series</span>
+    </div>
+
+    <div class="user-info">
+        <div class="user-meta">
+            <div class="name-row">
+                <div class="name">Pramuditha Shehan</div>
+                <div class="status">Status</div>
+            </div>
+
+            <div class="name-row">
+                <div>
+                    <span class="label">Points :</span>
+                    <span class="points-pill" id="points-display">0 / 2000 🏆</span>
+                </div>
+                <div class="stayed">Stayed Time : 15min</div>
+            </div>
+
+            <div class="progress-row">
+                <span class="label">Progress :</span>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Timeline Section (4 Korean PDF Lessons) -->
+<div class="timeline">
+
+    <!-- Left Side Image Boxes (PDF Open Triggers) -->
+    <div class="left-side">
+        <div class="image-box" id="box-0" onclick="handlePdfClick(0)" title="Click to open Korean Lesson 1 PDF">
+            <img src="./koren-coverpage.jpeg" alt="Korean Lesson 1">
+        </div>
+
+        <div class="image-box locked" id="box-1" onclick="handlePdfClick(1)" title="Click to open Korean Lesson 2 PDF">
+            <img src="./koren-coverpage.jpeg" alt="Korean Lesson 2">
+        </div>
+
+        <div class="image-box locked" id="box-2" onclick="handlePdfClick(2)" title="Click to open Korean Lesson 3 PDF">
+            <img src="./koren-coverpage.jpeg" alt="Korean Lesson 3">
+        </div>
+
+        <div class="image-box locked" id="box-3" onclick="handlePdfClick(3)" title="Click to open Korean Lesson 4 PDF">
+            <img src="./koren-coverpage.jpeg" alt="Korean Lesson 4">
+        </div>
+    </div>
+
+    <!-- Middle Line Dynamic Vertical Progress Line -->
+    <div class="middle-line">
+        <div class="middle-line-track"></div>
+        <div class="middle-line-fill" id="vertical-line-fill"></div>
+        <div class="dot active" id="dot-0"></div>
+        <div class="dot" id="dot-1"></div>
+        <div class="dot" id="dot-2"></div>
+        <div class="dot" id="dot-3"></div>
+    </div>
+
+    <!-- Right Side Korean Lessons -->
+    <div class="right-side">
+
+        <!-- Lesson 1 -->
+        <div class="lesson" id="lesson-card-0">
+            <h2>Korean Lesson 01 - Hangul Alphabet & Greetings</h2>
+            <p>
+                Master Korean alphabet (Hangul), basic vowels, consonants, and essential everyday greetings.<br>
+                Open PDF 1 to review the lesson guide and complete the quiz to unlock the next module.
+            </p>
+            <div class="lesson-actions">
+                <a href="./Korean/lession-01.pdf" download="lession_01.pdf" id="download-0">Download Book 1</a>
+                <button id="quiz-btn-0" onclick="startQuiz(0)">Quiz Time</button>
+            </div>
+        </div>
+
+        <!-- Lesson 2 -->
+        <div class="lesson locked" id="lesson-card-1">
+            <h2>Korean Lesson 02 - Sentence Structure & Particles</h2>
+            <p>
+                Learn Korean sentence structure (SOV format), topic particles (은/는), and subject particles (이/가).<br>
+                Complete Lesson 1 Quiz to unlock this section.
+            </p>
+            <div class="lesson-actions">
+                <a href="./Korean/lession-02.pdf" download="lession_02.pdf" class="disabled" id="download-1">Download Book 2</a>
+                <button id="quiz-btn-1" onclick="startQuiz(1)" disabled>🔒 Locked</button>
+            </div>
+        </div>
+
+        <!-- Lesson 3 -->
+        <div class="lesson locked" id="lesson-card-2">
+            <h2>Korean Lesson 03 - Numbers, Time & Daily Expressions</h2>
+            <p>
+                Understand Sino-Korean and Native Korean number systems, telling time, and ordering food.<br>
+                Complete Lesson 2 Quiz to unlock this section.
+            </p>
+            <div class="lesson-actions">
+                <a href="./Korean/lession-03.pdf" download="lession_03.pdf" class="disabled" id="download-2">Download Book 3</a>
+                <button id="quiz-btn-2" onclick="startQuiz(2)" disabled>🔒 Locked</button>
+            </div>
+        </div>
+
+        <!-- Lesson 4 -->
+        <div class="lesson locked" id="lesson-card-3">
+            <h2>Korean Lesson 04 - Intermediate Grammar & EPS-TOPIK Vocab</h2>
+            <p>
+                Master verb tenses, honorific expressions, workplace vocabulary, and EPS-TOPIK exam patterns.<br>
+                Complete Lesson 3 Quiz to unlock this final section.
+            </p>
+            <div class="lesson-actions">
+                <a href="./Korean/lession-04.pdf" download="lession_04.pdf" class="disabled" id="download-3">Download Book 4</a>
+                <button id="quiz-btn-3" onclick="startQuiz(3)" disabled>🔒 Locked</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- Quiz Modal -->
+<div class="modal-overlay" id="quiz-modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeQuiz()">&times;</span>
+        
+        <div class="quiz-header">
+            <h3 id="quiz-title">Quiz Title</h3>
+            <span id="question-tracker" style="font-size: 13px; color: #777;">Question 1 of 10</span>
+        </div>
+
+        <div id="quiz-body">
+            <div class="question-text" id="question-text">Question goes here?</div>
+            <div class="options-list" id="options-list"></div>
+            
+            <div class="quiz-footer">
+                <span style="font-size: 13px; color: #19c37d; font-weight: bold;">+50 Points per correct answer</span>
+                <button class="quiz-next-btn" id="next-btn" onclick="nextQuestion()" disabled>Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Data for 4 Korean Lessons (10 Questions each = 40 questions total)
+// 40 questions * 50 points = 2000 max points.
+const subjectsData = [
+    {
+        title: "Korean Lesson 01 Quiz - Hangul & Greetings",
+        pdf: "./Korean/lession-01.pdf",
+        questions: [
+            { q: "1. What is the official name of the Korean writing system?", options: ["Kanji", "Hangul", "Hiragana", "Hanja"], correct: 1 },
+            { q: "2. How do you say 'Hello' in polite Korean?", options: ["감사합니다 (Gamsahamnida)", "안녕하세요 (Annyeonghaseyo)", "죄송합니다 (Joesonghamnida)", "잘 자요 (Jal jayo)"], correct: 1 },
+            { q: "3. Which Hangul consonant represents the 'N' sound?", options: ["ㄱ", "ㄴ", "ㄷ", "ㅁ"], correct: 1 },
+            { q: "4. What does '감사합니다' (Gamsahamnida) mean?", options: ["Sorry", "Goodbye", "Thank you", "Yes"], correct: 2 },
+            { q: "5. Which basic vowel creates the 'Ah' sound in Hangul?", options: ["ㅓ", "ㅏ", "ㅜ", "ㅣ"], correct: 1 },
+            { q: "6. How do you say 'Goodbye' when leaving while the listener stays?", options: ["안녕히 계세요 (Annyeonghi gyeseyo)", "안녕히 가세요 (Annyeonghi gaseyo)", "또 봐요 (Tto bwayo)", "반갑습니다 (Bangapsumnida)"], correct: 0 },
+            { q: "7. Which word means 'Yes' in polite Korean?", options: ["아니요 (Aniyo)", "네 (Ne)", "아마도 (Amado)", "괜찮아요 (Gwaenchanayo)"], correct: 1 },
+            { q: "8. What is the polite Korean word for 'No'?", options: ["네 (Ne)", "아니요 (Aniyo)", "없어요 (Eopseoyo)", "좋아요 (Joayo)"], correct: 1 },
+            { q: "9. Which consonant character represents the 'M' sound in Hangul?", options: ["ㅂ", "ㅅ", "ㅁ", "ㅇ"], correct: 2 },
+            { q: "10. What does '죄송합니다' (Joesonghamnida) mean?", options: ["Excuse me", "I am sorry", "You're welcome", "Nice to meet you"], correct: 1 }
+        ]
+    },
+    {
+        title: "Korean Lesson 02 Quiz - Grammar & Sentence Structure",
+        pdf: "./Korean/lession-02.pdf",
+        questions: [
+            { q: "1. What is the standard basic word order in Korean sentences?", options: ["Subject - Verb - Object (SVO)", "Subject - Object - Verb (SOV)", "Verb - Subject - Object (VSO)", "Object - Verb - Subject (OVS)"], correct: 1 },
+            { q: "2. Which particles are used as Topic Markers in Korean?", options: ["이 / 가", "은 / 는", "을 / 를", "에 / 에서"], correct: 1 },
+            { q: "3. Which particles are used as Subject Markers?", options: ["이 / 가", "은 / 는", "을 / 를", "하고 / 와"], correct: 0 },
+            { q: "4. What does the Korean word '물' (Mul) mean?", options: ["Food", "Water", "Tea", "Milk"], correct: 1 },
+            { q: "5. How do you say 'Friend' in Korean?", options: ["학생 (Haksaeng)", "친구 (Chingu)", "선생님 (Seonsaengnim)", "의사 (Uisa)"], correct: 1 },
+            { q: "6. Which Korean verb means 'To eat' in dictionary form?", options: ["가다 (Gada)", "마시다 (Masida)", "먹다 (Meokda)", "보다 (Boda)"], correct: 2 },
+            { q: "7. Which particles are used to mark the Direct Object in a sentence?", options: ["을 / 를", "은 / 는", "이 / 가", "에 / 에서"], correct: 0 },
+            { q: "8. What does '학교' (Hakgyo) mean in English?", options: ["Hospital", "School", "Library", "Bank"], correct: 1 },
+            { q: "9. How do you say 'Teacher' in Korean?", options: ["선생님 (Seonsaengnim)", "학생 (Haksaeng)", "사장님 (Sajangnim)", "기사 (Gisa)"], correct: 0 },
+            { q: "10. What ending do all Korean verbs and adjectives share in their dictionary form?", options: ["요", "다", "입니다", "습니다"], correct: 1 }
+        ]
+    },
+    {
+        title: "Korean Lesson 03 Quiz - Numbers, Time & Expressions",
+        pdf: "./Korean/lession-03.pdf",
+        questions: [
+            { q: "1. What is the Sino-Korean number for '1'?", options: ["하나 (Hana)", "일 (Il)", "둘 (Dul)", "이 (I)"], correct: 1 },
+            { q: "2. What is the Native Korean number for '1'?", options: ["일 (Il)", "하나 (Hana)", "삼 (Sam)", "셋 (Set)"], correct: 1 },
+            { q: "3. Which number system is used for counting hours when telling time?", options: ["Sino-Korean", "Native Korean", "English numbers", "Roman numbers"], correct: 1 },
+            { q: "4. How do you conjugate '가다' (to go) into present informal polite tense?", options: ["가요 (Gayo)", "갔어요 (Gasseoyo)", "갈 거예요 (Gal geoyeyo)", "갑니다 (Gamnida)"], correct: 0 },
+            { q: "5. What is the past tense ending pattern for standard polite verbs?", options: ["-아요 / -어요", "-았어요 / -었어요", "-ㄹ 거예요", "-고 있어요"], correct: 1 },
+            { q: "6. How do you say 'How much is this?' in Korean?", options: ["이거 얼마예요? (Igeo eolmayeyo?)", "어디예요? (Eodiyeyo?)", "누구예요? (Nuguyeyo?)", "뭐예요? (Mwoyeyo?)"], correct: 0 },
+            { q: "7. What does '오늘' (Oneul) mean?", options: ["Yesterday", "Today", "Tomorrow", "Next week"], correct: 1 },
+            { q: "8. What does '내일' (Naeil) mean?", options: ["Today", "Yesterday", "Tomorrow", "Now"], correct: 2 },
+            { q: "9. Which particle indicates location/direction meaning 'to' or 'at'?", options: ["에 (E)", "를 (Reul)", "는 (Neun)", "가 (Ga)"], correct: 0 },
+            { q: "10. How do you ask 'Where is the restroom?' in Korean?", options: ["화장실이 어디예요?", "식당이 어디예요?", "집이 어디예요?", "공항이 어디예요?"], correct: 0 }
+        ]
+    },
+    {
+        title: "Korean Lesson 04 Quiz - Intermediate & EPS-TOPIK Vocab",
+        pdf: "./Korean/lession-04.pdf",
+        questions: [
+            { q: "1. What does the honorific verb infix '-시-' indicate?", options: ["Past tense", "Future tense", "Respect towards the subject", "Negation"], correct: 2 },
+            { q: "2. What does '병원' (Byeongwon) mean in English?", options: ["Pharmacy", "Hospital", "Police Station", "Factory"], correct: 1 },
+            { q: "3. Which word refers to a 'Factory' or 'Workplace' in Korean?", options: ["공장 (Gongjang)", "회사 (Hoesa)", "학교 (Hakgyo)", "마트 (Mateu)"], correct: 0 },
+            { q: "4. What does the grammar pattern '-고 싶어요' express?", options: ["I must do...", "I want to do...", "I can do...", "I am doing..."], correct: 1 },
+            { q: "5. Which Korean word means 'Dangerous' / 'Danger'?", options: ["안전 (Anjeon)", "위험 (Wiheom)", "조심 (Josim)", "깨끗 (Kkaekkeut)"], correct: 1 },
+            { q: "6. What is the antonym (opposite) of '크다' (Big)?", options: ["작다 (Jakda)", "길다 (Gilda)", "높다 (Nopda)", "많다 (Manda)"], correct: 0 },
+            { q: "7. What does '안전모' (Anjeonmo) mean in safety vocabulary?", options: ["Safety shoes", "Safety helmet / hardhat", "Safety glasses", "Gloves"], correct: 1 },
+            { q: "8. What does the grammar structure '-ㄹ 수 있어요' mean?", options: ["Cannot do", "Can do / Ability", "Must do", "Should not do"], correct: 1 },
+            { q: "9. How do you get someone's attention (e.g. restaurant waiter) in Korea?", options: ["저기요! (Jeogiyo!)", "미안해요! (Mianhaeyo!)", "안녕! (Annyeong!)", "여보세요! (Yeoboseyo!)"], correct: 0 },
+            { q: "10. What does '약국' (Yakguk) mean?", options: ["Hospital", "Pharmacy", "Supermarket", "Bank"], correct: 1 }
+        ]
+    }
+];
+
+// User Scores & Completed Quiz Status (Saved in LocalStorage under Korean keys)
+let userScores = JSON.parse(localStorage.getItem('lanhub_korean_scores')) || [
+    new Array(10).fill(false),
+    new Array(10).fill(false),
+    new Array(10).fill(false),
+    new Array(10).fill(false)
+];
+
+// Completed Quizzes array [lesson1, lesson2, lesson3, lesson4]
+let completedQuizzes = JSON.parse(localStorage.getItem('lanhub_korean_completed')) || [false, false, false, false];
+
+let currentSubjectIndex = 0;
+let currentQuestionIndex = 0;
+let selectedOptionIndex = null;
+
+// Initialize on page load
+window.onload = function() {
+    updateLockState();
+    updateUI();
+};
+
+// Function to check lock state and update UI components
+function updateLockState() {
+    for (let i = 0; i < 4; i++) {
+        const isUnlocked = (i === 0) || completedQuizzes[i - 1];
+        
+        const box = document.getElementById(`box-${i}`);
+        const lessonCard = document.getElementById(`lesson-card-${i}`);
+        const quizBtn = document.getElementById(`quiz-btn-${i}`);
+        const downloadLink = document.getElementById(`download-${i}`);
+        const dot = document.getElementById(`dot-${i}`);
+
+        if (isUnlocked) {
+            box.classList.remove('locked');
+            lessonCard.classList.remove('locked');
+            quizBtn.disabled = false;
+            quizBtn.innerText = completedQuizzes[i] ? "Retake Quiz" : "Quiz Time";
+            downloadLink.classList.remove('disabled');
+            dot.classList.add('active');
+            if (completedQuizzes[i]) dot.classList.add('completed');
+        } else {
+            box.classList.add('locked');
+            lessonCard.classList.add('locked');
+            quizBtn.disabled = true;
+            quizBtn.innerText = "🔒 Locked";
+            downloadLink.classList.add('disabled');
+            dot.classList.remove('active', 'completed');
+        }
+    }
+
+    // Dynamic Vertical Green Line Height Progress
+    let completedCount = completedQuizzes.filter(Boolean).length;
+    let fillHeightPercent = 0;
+    if (completedCount === 1) fillHeightPercent = 33;
+    else if (completedCount === 2) fillHeightPercent = 66;
+    else if (completedCount >= 3) fillHeightPercent = 100;
+
+    document.getElementById('vertical-line-fill').style.height = `${fillHeightPercent}%`;
+}
+
+// Function when PDF Image Box is clicked
+function handlePdfClick(subjectIndex) {
+    const isUnlocked = (subjectIndex === 0) || completedQuizzes[subjectIndex - 1];
+
+    if (!isUnlocked) {
+        alert(`🔒 Lesson ${subjectIndex + 1} is locked! Please complete the Lesson ${subjectIndex} Quiz first.`);
+        return;
+    }
+
+    const pdfPath = subjectsData[subjectIndex].pdf;
+    window.open(pdfPath, '_blank');
+}
+
+// Function to start quiz
+function startQuiz(subjectIndex) {
+    const isUnlocked = (subjectIndex === 0) || completedQuizzes[subjectIndex - 1];
+    if (!isUnlocked) {
+        alert(`🔒 Please complete Lesson ${subjectIndex} quiz first!`);
+        return;
+    }
+
+    currentSubjectIndex = subjectIndex;
+    currentQuestionIndex = 0;
+    
+    document.getElementById('quiz-title').innerText = subjectsData[subjectIndex].title;
+    document.getElementById('quiz-modal').style.display = 'flex';
+    
+    loadQuestion();
+}
+
+// Load Question in Modal
+function loadQuestion() {
+    selectedOptionIndex = null;
+    const nextBtn = document.getElementById('next-btn');
+    nextBtn.disabled = true;
+    nextBtn.innerText = (currentQuestionIndex === 9) ? "Finish Quiz" : "Next";
+
+    const subject = subjectsData[currentSubjectIndex];
+    const qData = subject.questions[currentQuestionIndex];
+
+    document.getElementById('question-tracker').innerText = `Question ${currentQuestionIndex + 1} of 10`;
+    document.getElementById('question-text').innerText = qData.q;
+
+    const optionsContainer = document.getElementById('options-list');
+    optionsContainer.innerHTML = '';
+
+    qData.options.forEach((optText, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerText = `${String.fromCharCode(65 + idx)}. ${optText}`;
+        btn.onclick = () => selectOption(idx);
+        optionsContainer.appendChild(btn);
+    });
+}
+
+// Option Selection
+function selectOption(index) {
+    selectedOptionIndex = index;
+    const buttons = document.querySelectorAll('.option-btn');
+    buttons.forEach((btn, idx) => {
+        if (idx === index) {
+            btn.classList.add('selected');
+        } else {
+            btn.classList.remove('selected');
+        }
+    });
+    document.getElementById('next-btn').disabled = false;
+}
+
+// Next Question & Update Progress
+function nextQuestion() {
+    if (selectedOptionIndex === null) return;
+
+    const currentQData = subjectsData[currentSubjectIndex].questions[currentQuestionIndex];
+    
+    // Check answer correctness
+    userScores[currentSubjectIndex][currentQuestionIndex] = (selectedOptionIndex === currentQData.correct);
+
+    // Save scores to LocalStorage
+    localStorage.setItem('lanhub_korean_scores', JSON.stringify(userScores));
+
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < 10) {
+        loadQuestion();
+    } else {
+        // Quiz completed for this lesson
+        completedQuizzes[currentSubjectIndex] = true;
+        localStorage.setItem('lanhub_korean_completed', JSON.stringify(completedQuizzes));
+        
+        updateLockState();
+        updateUI();
+
+        alert(`🎉 Congratulations! You have completed ${subjectsData[currentSubjectIndex].title}. Next lesson is unlocked!`);
+        closeQuiz();
+    }
+}
+
+// Update Points and Horizontal Progress Bar
+function updateUI() {
+    let correctCount = 0;
+    userScores.forEach(subj => {
+        subj.forEach(qCorrect => {
+            if (qCorrect) correctCount++;
+        });
+    });
+
+    const totalPoints = correctCount * 50; // 40 questions * 50 = 2000 max points
+    const progressPercent = Math.round((correctCount / 40) * 100);
+
+    document.getElementById('points-display').innerText = `${totalPoints} / 2000 🏆`;
+    document.getElementById('progress-fill').style.width = `${progressPercent}%`;
+}
+
+// Close Quiz Modal
+function closeQuiz() {
+    document.getElementById('quiz-modal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,429 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LanHub - IELTS Preparation Course</title>
+
+<link rel="stylesheet" href="./book.css">
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- Header -->
+<div class="header">
+    <div class="logo">
+        <img src="./main logo .png" alt="logo">
+    </div>
+
+    <nav class="Navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Share your Knowledge</a>
+        <a href="#">Languages</a>
+    </nav>
+</div>
+
+<hr class="divider">
+
+<!-- Course Bar -->
+<div class="course-bar">
+    <div class="course-title">
+        <h1>IELTS Preparation</h1>
+        <span>Masterclass & Quiz Series</span>
+    </div>
+
+    <div class="user-info">
+        <div class="user-meta">
+            <div class="name-row">
+                <div class="name">Pramuditha Shehan</div>
+                <div class="status">Status</div>
+            </div>
+
+            <div class="name-row">
+                <div>
+                    <span class="label">Points :</span>
+                    <span class="points-pill" id="points-display">0 / 2000 🏆</span>
+                </div>
+                <div class="stayed">Stayed Time : 15min</div>
+            </div>
+
+            <div class="progress-row">
+                <span class="label">Progress :</span>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Timeline Section (4 IELTS PDF Lessons) -->
+<div class="timeline">
+
+    <!-- Left Side Image Boxes (PDF Open Triggers) -->
+    <div class="left-side">
+        <div class="image-box" id="box-0" onclick="handlePdfClick(0)" title="Click to open IELTS Lesson 1 PDF">
+            <img src="./IELTS Coverpage.png" alt="IELTS Lesson 1">
+        </div>
+
+        <div class="image-box locked" id="box-1" onclick="handlePdfClick(1)" title="Click to open IELTS Lesson 2 PDF">
+            <img src="./IELTS Coverpage.png" alt="IELTS Lesson 2">
+        </div>
+
+        <div class="image-box locked" id="box-2" onclick="handlePdfClick(2)" title="Click to open IELTS Lesson 3 PDF">
+            <img src="./IELTS Coverpage.png" alt="IELTS Lesson 3">
+        </div>
+
+        <div class="image-box locked" id="box-3" onclick="handlePdfClick(3)" title="Click to open IELTS Lesson 4 PDF">
+            <img src="./IELTS Coverpage.png" alt="IELTS Lesson 4">
+        </div>
+    </div>
+
+    <!-- Middle Line Dynamic Vertical Progress Line -->
+    <div class="middle-line">
+        <div class="middle-line-track"></div>
+        <div class="middle-line-fill" id="vertical-line-fill"></div>
+        <div class="dot active" id="dot-0"></div>
+        <div class="dot" id="dot-1"></div>
+        <div class="dot" id="dot-2"></div>
+        <div class="dot" id="dot-3"></div>
+    </div>
+
+    <!-- Right Side IELTS Lessons -->
+    <div class="right-side">
+
+        <!-- Lesson 1 -->
+        <div class="lesson" id="lesson-card-0">
+            <h2>IELTS Lesson 01 - Listening Module Strategy</h2>
+            <p>
+                Master IELTS Listening formats, accent recognition, keyword prediction, and spelling precision.<br>
+                Open PDF 1 to review listening techniques and take the quiz to unlock the next module.
+            </p>
+            <div class="lesson-actions">
+                <a href="./IELTS/lession_01.pdf" download="lession_01.pdf" id="download-0">Download Book 1</a>
+                <button id="quiz-btn-0" onclick="startQuiz(0)">Quiz Time</button>
+            </div>
+        </div>
+
+        <!-- Lesson 2 -->
+        <div class="lesson locked" id="lesson-card-1">
+            <h2>IELTS Lesson 02 - Reading Passage & Paraphrasing</h2>
+            <p>
+                Learn essential strategies for Skimming, Scanning, True/False/Not Given, and Matching Headings.<br>
+                Complete Lesson 1 Quiz to unlock this section.
+            </p>
+            <div class="lesson-actions">
+                <a href="./IELTS/lession_02.pdf" download="lession_02.pdf" class="disabled" id="download-1">Download Book 2</a>
+                <button id="quiz-btn-1" onclick="startQuiz(1)" disabled>🔒 Locked</button>
+            </div>
+        </div>
+
+        <!-- Lesson 3 -->
+        <div class="lesson locked" id="lesson-card-2">
+            <h2>IELTS Lesson 03 - Writing Task 1 & Task 2</h2>
+            <p>
+                Master report writing for graphs/charts (Task 1) and formal academic essay structuring (Task 2).<br>
+                Complete Lesson 2 Quiz to unlock this section.
+            </p>
+            <div class="lesson-actions">
+                <a href="./IELTS/lession_03.pdf" download="lession_03.pdf" class="disabled" id="download-2">Download Book 3</a>
+                <button id="quiz-btn-2" onclick="startQuiz(2)" disabled>🔒 Locked</button>
+            </div>
+        </div>
+
+        <!-- Lesson 4 -->
+        <div class="lesson locked" id="lesson-card-3">
+            <h2>IELTS Lesson 04 - Speaking Test & Band 9 Criteria</h2>
+            <p>
+                Understand Speaking Parts 1, 2 (Cue Card), and 3, along with fluency, coherence, and band descriptors.<br>
+                Complete Lesson 3 Quiz to unlock this final section.
+            </p>
+            <div class="lesson-actions">
+                <a href="./IELTS/lession_04.pdf" download="lession_04.pdf" class="disabled" id="download-3">Download Book 4</a>
+                <button id="quiz-btn-3" onclick="startQuiz(3)" disabled>🔒 Locked</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- Quiz Modal -->
+<div class="modal-overlay" id="quiz-modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeQuiz()">&times;</span>
+        
+        <div class="quiz-header">
+            <h3 id="quiz-title">Quiz Title</h3>
+            <span id="question-tracker" style="font-size: 13px; color: #777;">Question 1 of 10</span>
+        </div>
+
+        <div id="quiz-body">
+            <div class="question-text" id="question-text">Question goes here?</div>
+            <div class="options-list" id="options-list"></div>
+            
+            <div class="quiz-footer">
+                <span style="font-size: 13px; color: #19c37d; font-weight: bold;">+50 Points per correct answer</span>
+                <button class="quiz-next-btn" id="next-btn" onclick="nextQuestion()" disabled>Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Data for 4 IELTS Lessons (10 Questions each = 40 questions total)
+// 40 questions * 50 points = 2000 max points.
+const subjectsData = [
+    {
+        title: "IELTS Lesson 01 Quiz - Listening Module",
+        pdf: "./IELTS/lession_01.pdf",
+        questions: [
+            { q: "1. How long is the IELTS Listening test in total?", options: ["15 minutes", "30 minutes (plus 10 mins transfer time)", "60 minutes", "45 minutes"], correct: 1 },
+            { q: "2. How many sections/parts are in the IELTS Listening module?", options: ["2", "3", "4", "5"], correct: 2 },
+            { q: "3. How many times will you hear the recording during the Listening exam?", options: ["Only once", "Twice", "Three times", "It depends on the center"], correct: 0 },
+            { q: "4. What is the context of IELTS Listening Part 1?", options: ["Academic lecture", "Conversation between two people in an everyday social context", "Monologue in a university setting", "Discussion between four students"], correct: 1 },
+            { q: "5. What happens if you exceed the stated word limit (e.g., NO MORE THAN TWO WORDS)?", options: ["You lose half a point", "Your answer is marked incorrect", "You get extra points", "It is ignored"], correct: 1 },
+            { q: "6. If the limit is 'NO MORE THAN TWO WORDS', which answer is INCORRECT?", options: ["Red car", "The blue car", "Car", "Big bus"], correct: 1 },
+            { q: "7. Which accents might you hear in the IELTS Listening exam?", options: ["British only", "American only", "Variety (British, Australian, American, NZ)", "Indian accent only"], correct: 2 },
+            { q: "8. In paper-based IELTS, how much time is given at the end to transfer answers?", options: ["5 minutes", "10 minutes", "2 minutes", "No transfer time"], correct: 1 },
+            { q: "9. In computer-delivered IELTS, how much time do you get at the end of Listening?", options: ["10 minutes", "2 minutes to review", "5 minutes", "15 minutes"], correct: 1 },
+            { q: "10. What is the best strategy during the preparation time before each section?", options: ["Rest your eyes", "Read questions and predict key words/answer types", "Write down your Task 2 essay", "Check answers from previous sections"], correct: 1 }
+        ]
+    },
+    {
+        title: "IELTS Lesson 02 Quiz - Reading Module",
+        pdf: "./IELTS/lession_02.pdf",
+        questions: [
+            { q: "1. How many reading passages are in the IELTS Academic Reading test?", options: ["2", "3", "4", "5"], correct: 1 },
+            { q: "2. What is the total time limit for the IELTS Reading module?", options: ["45 minutes", "60 minutes", "90 minutes", "30 minutes"], correct: 1 },
+            { q: "3. In 'True / False / Not Given' questions, what does 'Not Given' mean?", options: ["The statement contradicts the text", "The statement matches the text", "The information is not mentioned in the passage", "The statement is partially true"], correct: 2 },
+            { q: "4. Which reading skill involves searching rapidly for specific facts like names or dates?", options: ["Skimming", "Scanning", "Intensive reading", "Critical reading"], correct: 1 },
+            { q: "5. What does 'Skimming' mean in IELTS Reading?", options: ["Reading every single word carefully", "Reading quickly to get the main idea or gist", "Searching for numbers only", "Translating words"], correct: 1 },
+            { q: "6. Are you given extra time at the end to transfer Reading answers to the answer sheet?", options: ["Yes, 10 minutes", "Yes, 5 minutes", "No extra transfer time is given", "Yes, 2 minutes"], correct: 2 },
+            { q: "7. How many questions in total are in the IELTS Reading exam?", options: ["30", "40", "50", "25"], correct: 1 },
+            { q: "8. In Heading Matching questions, where is the topic sentence usually found?", options: ["Only at the end of a paragraph", "Near the beginning of a paragraph", "In footnotes", "In bullet points"], correct: 1 },
+            { q: "9. What happens if you misspell a word copied directly from the text?", options: ["Half mark deducted", "It is marked wrong", "Ignored if phonetically correct", "Full credit given"], correct: 1 },
+            { q: "10. Which vocabulary skill is MOST critical for scoring high in IELTS Reading?", options: ["Memorizing Latin roots", "Recognizing paraphrasing and synonyms", "Knowing street slang", "Speed typing"], correct: 1 }
+        ]
+    },
+    {
+        title: "IELTS Lesson 03 Quiz - Writing Module",
+        pdf: "./IELTS/lession_03.pdf",
+        questions: [
+            { q: "1. What is the minimum recommended word count for Academic Writing Task 1?", options: ["100 words", "150 words", "250 words", "300 words"], correct: 1 },
+            { q: "2. What is the minimum recommended word count for Writing Task 2?", options: ["150 words", "200 words", "250 words", "300 words"], correct: 2 },
+            { q: "3. How much total time do you have for both Writing Task 1 and Task 2?", options: ["45 minutes", "60 minutes", "75 minutes", "90 minutes"], correct: 1 },
+            { q: "4. What must you include in an Academic Task 1 summary report?", options: ["Your personal opinion", "An Overview highlighting main trends/features", "Quotes from famous books", "Bullet points"], correct: 1 },
+            { q: "5. Which grading criterion evaluates paragraph structure and flow of ideas?", options: ["Task Achievement", "Coherence and Cohesion", "Lexical Resource", "Grammatical Range"], correct: 1 },
+            { q: "6. How much weight does Task 2 carry towards your final Writing score?", options: ["33% (1/3)", "50% (1/2)", "66% (2/3)", "75% (3/4)"], correct: 2 },
+            { q: "7. What register/style should you use in an IELTS Task 2 essay?", options: ["Informal and conversational", "Formal and academic", "Humorous and poetic", "Slang and contractions"], correct: 1 },
+            { q: "8. What does 'Lexical Resource' stand for in the band descriptors?", options: ["Grammar accuracy", "Range and precision of vocabulary", "Essay structure", "Handwriting style"], correct: 1 },
+            { q: "9. Should you write personal opinions in Academic Task 1?", options: ["Yes, in the conclusion", "No, Task 1 requires objective data reporting only", "Yes, in introduction", "Only if you disagree"], correct: 1 },
+            { q: "10. Which linking word best indicates contrast between two sentences?", options: ["Furthermore", "However", "Therefore", "Consequently"], correct: 1 }
+        ]
+    },
+    {
+        title: "IELTS Lesson 04 Quiz - Speaking & Band Score Mastery",
+        pdf: "./IELTS/lession_04.pdf",
+        questions: [
+            { q: "1. How many parts are there in the IELTS Speaking test?", options: ["2 parts", "3 parts", "4 parts", "5 parts"], correct: 1 },
+            { q: "2. What is Speaking Part 2 commonly called?", options: ["General Discussion", "Individual Long Turn / Cue Card", "Interview", "Debate"], correct: 1 },
+            { q: "3. How much time do you get to prepare after receiving your Part 2 Cue Card?", options: ["30 seconds", "1 minute", "2 minutes", "3 minutes"], correct: 1 },
+            { q: "4. How long should you speak during Part 2?", options: ["30-40 seconds", "1 to 2 minutes", "4 to 5 minutes", "10 minutes"], correct: 1 },
+            { q: "5. What is the main focus of Speaking Part 3?", options: ["Personal family questions", "Abstract discussion linked to Part 2 topic", "Reading aloud", "Spelling words"], correct: 1 },
+            { q: "6. What is the maximum Band Score achievable in IELTS?", options: ["Band 10", "Band 9", "Band 100", "Band 8.5"], correct: 1 },
+            { q: "7. Which of the following is NOT an official IELTS Speaking criteria?", options: ["Fluency and Coherence", "Lexical Resource", "Accent and Nationality", "Pronunciation"], correct: 2 },
+            { q: "8. What should you do if you don't understand a question in Speaking Part 3?", options: ["Stay silent", "Politely ask the examiner to clarify or repeat", "Talk about something completely different", "Walk out"], correct: 1 },
+            { q: "9. How long does the entire face-to-face Speaking test last?", options: ["5-7 minutes", "11-14 minutes", "20-25 minutes", "30 minutes"], correct: 1 },
+            { q: "10. An IELTS Band 7 user is officially described as a:", options: ["Expert User", "Good User", "Competent User", "Modest User"], correct: 1 }
+        ]
+    }
+];
+
+// User Scores & Completed Quiz Status (Saved in LocalStorage under IELTS keys)
+let userScores = JSON.parse(localStorage.getItem('lanhub_ielts_scores')) || [
+    new Array(10).fill(false),
+    new Array(10).fill(false),
+    new Array(10).fill(false),
+    new Array(10).fill(false)
+];
+
+// Completed Quizzes array [lesson1, lesson2, lesson3, lesson4]
+let completedQuizzes = JSON.parse(localStorage.getItem('lanhub_ielts_completed')) || [false, false, false, false];
+
+let currentSubjectIndex = 0;
+let currentQuestionIndex = 0;
+let selectedOptionIndex = null;
+
+// Initialize on page load
+window.onload = function() {
+    updateLockState();
+    updateUI();
+};
+
+// Function to check lock state and update UI components
+function updateLockState() {
+    for (let i = 0; i < 4; i++) {
+        const isUnlocked = (i === 0) || completedQuizzes[i - 1];
+        
+        const box = document.getElementById(`box-${i}`);
+        const lessonCard = document.getElementById(`lesson-card-${i}`);
+        const quizBtn = document.getElementById(`quiz-btn-${i}`);
+        const downloadLink = document.getElementById(`download-${i}`);
+        const dot = document.getElementById(`dot-${i}`);
+
+        if (isUnlocked) {
+            box.classList.remove('locked');
+            lessonCard.classList.remove('locked');
+            quizBtn.disabled = false;
+            quizBtn.innerText = completedQuizzes[i] ? "Retake Quiz" : "Quiz Time";
+            downloadLink.classList.remove('disabled');
+            dot.classList.add('active');
+            if (completedQuizzes[i]) dot.classList.add('completed');
+        } else {
+            box.classList.add('locked');
+            lessonCard.classList.add('locked');
+            quizBtn.disabled = true;
+            quizBtn.innerText = "🔒 Locked";
+            downloadLink.classList.add('disabled');
+            dot.classList.remove('active', 'completed');
+        }
+    }
+
+    // Dynamic Vertical Green Line Height Progress
+    let completedCount = completedQuizzes.filter(Boolean).length;
+    let fillHeightPercent = 0;
+    if (completedCount === 1) fillHeightPercent = 33;
+    else if (completedCount === 2) fillHeightPercent = 66;
+    else if (completedCount >= 3) fillHeightPercent = 100;
+
+    document.getElementById('vertical-line-fill').style.height = `${fillHeightPercent}%`;
+}
+
+// Function when PDF Image Box is clicked
+function handlePdfClick(subjectIndex) {
+    const isUnlocked = (subjectIndex === 0) || completedQuizzes[subjectIndex - 1];
+
+    if (!isUnlocked) {
+        alert(`🔒 Lesson ${subjectIndex + 1} is locked! Please complete the Lesson ${subjectIndex} Quiz first.`);
+        return;
+    }
+
+    const pdfPath = subjectsData[subjectIndex].pdf;
+    window.open(pdfPath, '_blank');
+}
+
+// Function to start quiz
+function startQuiz(subjectIndex) {
+    const isUnlocked = (subjectIndex === 0) || completedQuizzes[subjectIndex - 1];
+    if (!isUnlocked) {
+        alert(`🔒 Please complete Lesson ${subjectIndex} quiz first!`);
+        return;
+    }
+
+    currentSubjectIndex = subjectIndex;
+    currentQuestionIndex = 0;
+    
+    document.getElementById('quiz-title').innerText = subjectsData[subjectIndex].title;
+    document.getElementById('quiz-modal').style.display = 'flex';
+    
+    loadQuestion();
+}
+
+// Load Question in Modal
+function loadQuestion() {
+    selectedOptionIndex = null;
+    const nextBtn = document.getElementById('next-btn');
+    nextBtn.disabled = true;
+    nextBtn.innerText = (currentQuestionIndex === 9) ? "Finish Quiz" : "Next";
+
+    const subject = subjectsData[currentSubjectIndex];
+    const qData = subject.questions[currentQuestionIndex];
+
+    document.getElementById('question-tracker').innerText = `Question ${currentQuestionIndex + 1} of 10`;
+    document.getElementById('question-text').innerText = qData.q;
+
+    const optionsContainer = document.getElementById('options-list');
+    optionsContainer.innerHTML = '';
+
+    qData.options.forEach((optText, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerText = `${String.fromCharCode(65 + idx)}. ${optText}`;
+        btn.onclick = () => selectOption(idx);
+        optionsContainer.appendChild(btn);
+    });
+}
+
+// Option Selection
+function selectOption(index) {
+    selectedOptionIndex = index;
+    const buttons = document.querySelectorAll('.option-btn');
+    buttons.forEach((btn, idx) => {
+        if (idx === index) {
+            btn.classList.add('selected');
+        } else {
+            btn.classList.remove('selected');
+        }
+    });
+    document.getElementById('next-btn').disabled = false;
+}
+
+// Next Question & Update Progress
+function nextQuestion() {
+    if (selectedOptionIndex === null) return;
+
+    const currentQData = subjectsData[currentSubjectIndex].questions[currentQuestionIndex];
+    
+    // Check answer correctness
+    userScores[currentSubjectIndex][currentQuestionIndex] = (selectedOptionIndex === currentQData.correct);
+
+    // Save scores to LocalStorage
+    localStorage.setItem('lanhub_ielts_scores', JSON.stringify(userScores));
+
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < 10) {
+        loadQuestion();
+    } else {
+        // Quiz completed for this lesson
+        completedQuizzes[currentSubjectIndex] = true;
+        localStorage.setItem('lanhub_ielts_completed', JSON.stringify(completedQuizzes));
+        
+        updateLockState();
+        updateUI();
+
+        alert(`🎉 Congratulations! You have completed ${subjectsData[currentSubjectIndex].title}. Next lesson is unlocked!`);
+        closeQuiz();
+    }
+}
+
+// Update Points and Horizontal Progress Bar
+function updateUI() {
+    let correctCount = 0;
+    userScores.forEach(subj => {
+        subj.forEach(qCorrect => {
+            if (qCorrect) correctCount++;
+        });
+    });
+
+    const totalPoints = correctCount * 50; // 40 questions * 50 = 2000 max points
+    const progressPercent = Math.round((correctCount / 40) * 100);
+
+    document.getElementById('points-display').innerText = `${totalPoints} / 2000 🏆`;
+    document.getElementById('progress-fill').style.width = `${progressPercent}%`;
+}
+
+// Close Quiz Modal
+function closeQuiz() {
+    document.getElementById('quiz-modal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>

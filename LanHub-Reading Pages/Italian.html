@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LanHub - Italian Course</title>
+
+<link rel="stylesheet" href="./book.css">
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- Header -->
+<div class="header">
+    <div class="logo">
+        <img src="./main logo .png" alt="logo">
+    </div>
+
+    <nav class="Navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Share your Knowledge</a>
+        <a href="#">Languages</a>
+    </nav>
+</div>
+
+<hr class="divider">
+
+<!-- Course Bar -->
+<div class="course-bar">
+    <div class="course-title">
+        <h1>Italian</h1>
+        <span>Reading & Lesson Series</span>
+    </div>
+
+    <div class="user-info">
+        <div class="user-meta">
+            <div class="name-row">
+                <div class="name">Pramuditha Shehan</div>
+                <div class="status">Status</div>
+            </div>
+
+            <div class="name-row">
+                <div>
+                    <span class="label">Points :</span>
+                    <span class="points-pill" id="points-display">0 / 2000 🏆</span>
+                </div>
+                <div class="stayed">Stayed Time : 15min</div>
+            </div>
+
+            <div class="progress-row">
+                <span class="label">Progress :</span>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Timeline Section -->
+<div class="timeline">
+
+    <!-- Left Side Image Boxes (PDF Open Triggers) -->
+    <div class="left-side">
+        <div class="image-box" id="box-0" onclick="handlePdfClick(0)" title="Click to open Italian Lesson 1 PDF">
+            <img src="./Italian Coverpage.png" alt="Italian Lesson 1">
+        </div>
+
+        <div class="image-box locked" id="box-1" onclick="handlePdfClick(1)" title="Click to open Italian Lesson 2 PDF">
+            <img src="./Italian Coverpage.png" alt="Italian Lesson 2">
+        </div>
+
+        <div class="image-box locked" id="box-2" onclick="handlePdfClick(2)" title="Click to open Italian Lesson 3 PDF">
+            <img src="./Italian Coverpage.png" alt="Italian Lesson 3">
+        </div>
+
+        <div class="image-box locked" id="box-3" onclick="handlePdfClick(3)" title="Click to open Italian Lesson 4 PDF">
+            <img src="./Italian Coverpage.png" alt="Italian Lesson 4">
+        </div>
+    </div>
+
+    <!-- Middle Dynamic Vertical Progress Line -->
+    <div class="middle-line">
+        <div class="middle-line-track"></div>
+        <div class="middle-line-fill" id="vertical-line-fill"></div>
+        <div class="dot active" id="dot-0"></div>
+        <div class="dot" id="dot-1"></div>
+        <div class="dot" id="dot-2"></div>
+        <div class="dot" id="dot-3"></div>
+    </div>
+
+    <!-- Right Side Italian Lessons -->
+    <div class="right-side">
+
+        <!-- Lesson 1 -->
+        <div class="lesson" id="lesson-card-0">
+            <h2>Italian Lesson 01 - 15-Minute Italian</h2>
+            <p>
+                Learn essential daily phrases, greetings, and quick conversational Italian in just 15 minutes a day.<br>
+                Open PDF 1 to study the lesson guide and take the quiz to unlock Level 2.
+            </p>
+            <div class="lesson-actions">
+                <a href="./Italian/15-Minute Italian - Learn Italian in Just 15 Minutes a Day By DK.pdf" download="15_Minute_Italian_DK.pdf" id="download-0" onclick="handleDownload(event, 0)">Download Book 1</a>
+                <button id="quiz-btn-0" onclick="startQuiz(0)">Quiz Time</button>
+            </div>
+        </div>
+
+        <!-- Lesson 2 -->
+        <div class="lesson locked" id="lesson-card-1">
+            <h2>Italian Lesson 02 - Bilingual Visual Dictionary</h2>
+            <p>
+                Expand your visual vocabulary covering everyday items, food, transport, and places.<br>
+                Complete Lesson 1 Quiz to unlock this section.
+            </p>
+            <div class="lesson-actions">
+                <a href="./Italian/02-teach-yourself-beginners-italian.pdf" download="teach-yourself-beginners-italian.pdf" id="download-1" class="disabled" onclick="handleDownload(event, 1)">Download Book 2</a>
+                <button id="quiz-btn-1" onclick="startQuiz(1)" disabled>🔒 Locked</button>
+            </div>
+        </div>
+
+        <!-- Lesson 3 -->
+        <div class="lesson locked" id="lesson-card-2">
+            <h2>Italian Lesson 03 - Core Italian Vocabulary (5000 Words)</h2>
+            <p>
+                Master core Italian vocabulary, key verbs, nouns, and grammatical rules.<br>
+                Complete Lesson 2 Quiz to unlock this section.
+            </p>
+            <div class="lesson-actions">
+                <a href="./Italian/Italian vocabulary for English speakers - 5000 words ( PDFDrive ).pdf" download="Italian_5000_Vocabulary_Words.pdf" id="download-2" class="disabled" onclick="handleDownload(event, 2)">Download Book 3</a>
+                <button id="quiz-btn-2" onclick="startQuiz(2)" disabled>🔒 Locked</button>
+            </div>
+        </div>
+
+        <!-- Lesson 4 -->
+        <div class="lesson locked" id="lesson-card-3">
+            <h2>Italian Lesson 04 - Colloquial Italian 2</h2>
+            <p>
+                Take your fluency to the next level with advanced expressions, tenses, and natural dialogue.<br>
+                Complete Lesson 3 Quiz to unlock this section.
+            </p>
+            <div class="lesson-actions">
+                <a href="./Italian/Colloquial Italian 2_ The Next Step in Language Learning (Colloquial Series) ( PDFDrive ).pdf" download="Colloquial_Italian_2.pdf" id="download-3" class="disabled" onclick="handleDownload(event, 3)">Download Book 4</a>
+                <button id="quiz-btn-3" onclick="startQuiz(3)" disabled>🔒 Locked</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- Quiz Modal -->
+<div class="modal-overlay" id="quiz-modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeQuiz()">&times;</span>
+        
+        <div class="quiz-header">
+            <h3 id="quiz-title">Quiz Title</h3>
+            <span id="question-tracker" style="font-size: 13px; color: #777;">Question 1 of 10</span>
+        </div>
+
+        <div id="quiz-body">
+            <div class="question-text" id="question-text">Question goes here?</div>
+            <div class="options-list" id="options-list"></div>
+            
+            <div class="quiz-footer">
+                <span style="font-size: 13px; color: #19c37d; font-weight: bold;">+50 Points per correct answer</span>
+                <button class="quiz-next-btn" id="next-btn" onclick="nextQuestion()" disabled>Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Data for 4 Italian Lessons (10 Questions each = 40 questions total)
+const subjectsData = [
+    {
+        title: "Italian Lesson 01 Quiz - 15-Minute Italian Essentials",
+        pdf: "./Italian/15-Minute Italian - Learn Italian in Just 15 Minutes a Day By DK.pdf",
+        questions: [
+            { q: "1. What does 'Ciao' mean in Italian?", options: ["Only Hello", "Only Goodbye", "Both Hello and Goodbye", "Thank you"], correct: 2 },
+            { q: "2. How do you say 'Thank you' in Italian?", options: ["Prego", "Grazie", "Per favore", "Scusa"], correct: 1 },
+            { q: "3. What is the Italian word for 'Good morning'?", options: ["Buona sera", "Buona notte", "Buongiorno", "Arrivederci"], correct: 2 },
+            { q: "4. How do you say 'Yes' and 'No' in Italian?", options: ["Sì / No", "Oui / Non", "Da / Nyet", "Ja / Nein"], correct: 0 },
+            { q: "5. What does 'Per favore' mean?", options: ["Excuse me", "Please", "You are welcome", "Sorry"], correct: 1 },
+            { q: "6. How do you ask 'What is your name?' informally in Italian?", options: ["Come sta?", "Come ti chiami?", "Dove abiti?", "Quanti anni hai?"], correct: 1 },
+            { q: "7. What does 'Arrivederci' mean?", options: ["Good evening", "Goodbye", "See you soon", "Nice to meet you"], correct: 1 },
+            { q: "8. What is the response to 'Grazie' (Thank you)?", options: ["Prego", "Scusi", "Per favore", "Ciao"], correct: 0 },
+            { q: "9. What does 'Mi dispiace' mean?", options: ["I don't know", "I am sorry", "I don't understand", "Of course"], correct: 1 },
+            { q: "10. How do you say 'Excuse me' politely to a stranger?", options: ["Scusa", "Scusi", "Ciao", "Prego"], correct: 1 }
+        ]
+    },
+    {
+        title: "Italian Lesson 02 Quiz - Visual Dictionary & Vocabulary",
+        pdf: "./Italian/02-teach-yourself-beginners-italian.pdf",
+        questions: [
+            { q: "1. What is the Italian word for 'Water'?", options: ["Pane", "Vino", "Acqua", "Latte"], correct: 2 },
+            { q: "2. What does 'Il libro' mean in English?", options: ["The house", "The book", "The pen", "The table"], correct: 1 },
+            { q: "3. What is the Italian word for 'Bread'?", options: ["Pane", "Formaggio", "Pasta", "Carne"], correct: 0 },
+            { q: "4. How do you count '1, 2, 3' in Italian?", options: ["Un, Deux, Trois", "Uno, Due, Tre", "Uno, Dos, Tres", "Eins, Zwei, Drei"], correct: 1 },
+            { q: "5. What is 'House' in Italian?", options: ["Città", "Casa", "Strada", "Porta"], correct: 1 },
+            { q: "6. What does 'Il caffè' refer to?", options: ["Tea", "Coffee", "Milk", "Juice"], correct: 1 },
+            { q: "7. What does 'La macchina' mean?", options: ["The bicycle", "The car", "The train", "The bus"], correct: 1 },
+            { q: "8. What is 'Il gatto' in English?", options: ["The dog", "The cat", "The bird", "The fish"], correct: 1 },
+            { q: "9. How do you say 'Apple' in Italian?", options: ["Mela", "Banana", "Arancia", "Limone"], correct: 0 },
+            { q: "10. What does 'Il cane' mean?", options: ["The cat", "The dog", "The horse", "The cow"], correct: 1 }
+        ]
+    },
+    {
+        title: "Italian Lesson 03 Quiz - Core Vocabulary & Grammar",
+        pdf: "./Italian/Italian vocabulary for English speakers - 5000 words ( PDFDrive ).pdf",
+        questions: [
+            { q: "1. What is the meaning of the Italian verb 'Essere'?", options: ["To have", "To be", "To go", "To do"], correct: 1 },
+            { q: "2. What does the verb 'Avere' mean?", options: ["To be", "To have", "To want", "To can"], correct: 1 },
+            { q: "3. What is the plural of 'il ragazzo' (the boy)?", options: ["i ragazzi", "le ragazzi", "i ragatzi", "il ragazzi"], correct: 0 },
+            { q: "4. Which definite article is used before singular masculine nouns starting with a consonant?", options: ["La", "Il", "Lo", "L'"], correct: 1 },
+            { q: "5. What does the verb 'Mangiare' mean?", options: ["To drink", "To eat", "To sleep", "To walk"], correct: 1 },
+            { q: "6. What does 'Parlare' mean?", options: ["To speak", "To listen", "To write", "To read"], correct: 0 },
+            { q: "7. Regular feminine nouns in Italian usually end in 'a' in singular. What do they end in for plural?", options: ["o", "i", "e", "u"], correct: 2 },
+            { q: "8. What does the verb 'Andare' mean?", options: ["To come", "To go", "To run", "To stay"], correct: 1 },
+            { q: "9. What does the adverb 'Sempre' mean?", options: ["Never", "Always", "Sometimes", "Often"], correct: 1 },
+            { q: "10. What is the opposite of 'Grande' (Big)?", options: ["Alto", "Piccolo", "Lungo", "Nuovo"], correct: 1 }
+        ]
+    },
+    {
+        title: "Italian Lesson 04 Quiz - Advanced Colloquial Italian",
+        pdf: "./Italian/Colloquial Italian 2_ The Next Step in Language Learning (Colloquial Series) ( PDFDrive ).pdf",
+        questions: [
+            { q: "1. Which auxiliary verb is used to form past tense for verbs of movement like 'andare'?", options: ["Avere", "Essere", "Fare", "Stare"], correct: 1 },
+            { q: "2. What does 'Che cosa fai?' mean?", options: ["Where are you going?", "What are you doing?", "How are you?", "Why are you here?"], correct: 1 },
+            { q: "3. What is the Italian expression for 'I am hungry'?", options: ["Ho freddo", "Ho fame", "Ho sete", "Ho caldo"], correct: 1 },
+            { q: "4. What does 'Ci vediamo domani!' mean?", options: ["See you tomorrow!", "See you later!", "Have a nice day!", "Good night!"], correct: 0 },
+            { q: "5. What does the polite expression 'Vorrei...' mean?", options: ["I must...", "I would like...", "I can...", "I will..."], correct: 1 },
+            { q: "6. What does 'Non importa' mean?", options: ["It's very important", "It doesn't matter", "I don't care at all", "It's impossible"], correct: 1 },
+            { q: "7. What verb form is used to express wishes, doubts, or opinions in Italian?", options: ["Indicativo", "Imperativo", "Congiuntivo (Subjunctive)", "Gerundio"], correct: 2 },
+            { q: "8. What is 'Passato Prossimo' in Italian grammar?", options: ["Future tense", "Present tense", "Past tense (Present Perfect)", "Conditional"], correct: 2 },
+            { q: "9. What does 'D'accordo' mean?", options: ["Agreed / Okay", "Disagree", "Maybe", "Never"], correct: 0 },
+            { q: "10. How do you say 'I speak a little Italian'?", options: ["Parlo italiano molto bene", "Parlo un po' di italiano", "Non parlo italiano", "Studio italiano"], correct: 1 }
+        ]
+    }
+];
+
+// User Scores & Completed Quiz Status
+let userScores = JSON.parse(localStorage.getItem('lanhub_italian_scores')) || [
+    new Array(10).fill(false),
+    new Array(10).fill(false),
+    new Array(10).fill(false),
+    new Array(10).fill(false)
+];
+
+let completedQuizzes = JSON.parse(localStorage.getItem('lanhub_italian_completed')) || [false, false, false, false];
+
+let currentSubjectIndex = 0;
+let currentQuestionIndex = 0;
+let selectedOptionIndex = null;
+
+// Initialize on page load
+window.onload = function() {
+    updateLockState();
+    updateUI();
+};
+
+// Update Lock/Unlock State and Pointer Events
+function updateLockState() {
+    for (let i = 0; i < 4; i++) {
+        const isUnlocked = (i === 0) || completedQuizzes[i - 1];
+        
+        const box = document.getElementById(`box-${i}`);
+        const lessonCard = document.getElementById(`lesson-card-${i}`);
+        const quizBtn = document.getElementById(`quiz-btn-${i}`);
+        const downloadLink = document.getElementById(`download-${i}`);
+        const dot = document.getElementById(`dot-${i}`);
+
+        if (isUnlocked) {
+            box.classList.remove('locked');
+            lessonCard.classList.remove('locked');
+            quizBtn.disabled = false;
+            quizBtn.innerText = completedQuizzes[i] ? "Retake Quiz" : "Quiz Time";
+            
+            // Enable Download Button
+            downloadLink.classList.remove('disabled');
+            downloadLink.style.pointerEvents = 'auto';
+            downloadLink.style.opacity = '1';
+            
+            dot.classList.add('active');
+            if (completedQuizzes[i]) dot.classList.add('completed');
+        } else {
+            box.classList.add('locked');
+            lessonCard.classList.add('locked');
+            quizBtn.disabled = true;
+            quizBtn.innerText = "🔒 Locked";
+
+            // Disable Download Button
+            downloadLink.classList.add('disabled');
+            downloadLink.style.pointerEvents = 'none';
+            downloadLink.style.opacity = '0.5';
+
+            dot.classList.remove('active', 'completed');
+        }
+    }
+
+    // Dynamic Vertical Progress Line
+    let completedCount = completedQuizzes.filter(Boolean).length;
+    let fillHeightPercent = 0;
+    if (completedCount === 1) fillHeightPercent = 33;
+    else if (completedCount === 2) fillHeightPercent = 66;
+    else if (completedCount >= 3) fillHeightPercent = 100;
+
+    document.getElementById('vertical-line-fill').style.height = `${fillHeightPercent}%`;
+}
+
+// Open PDF in new tab with URL encoding
+function handlePdfClick(subjectIndex) {
+    const isUnlocked = (subjectIndex === 0) || completedQuizzes[subjectIndex - 1];
+
+    if (!isUnlocked) {
+        alert(`🔒 Lesson ${subjectIndex + 1} is locked! Please complete Lesson ${subjectIndex} Quiz first.`);
+        return;
+    }
+
+    const pdfPath = subjectsData[subjectIndex].pdf;
+    window.open(encodeURI(pdfPath), '_blank');
+}
+
+// Handle Download Click
+function handleDownload(e, subjectIndex) {
+    const isUnlocked = (subjectIndex === 0) || completedQuizzes[subjectIndex - 1];
+    if (!isUnlocked) {
+        e.preventDefault();
+        alert(`🔒 Lesson ${subjectIndex + 1} is locked! Complete Lesson ${subjectIndex} Quiz first.`);
+    }
+}
+
+// Start Quiz Modal
+function startQuiz(subjectIndex) {
+    const isUnlocked = (subjectIndex === 0) || completedQuizzes[subjectIndex - 1];
+    if (!isUnlocked) {
+        alert(`🔒 Please complete Lesson ${subjectIndex} quiz first!`);
+        return;
+    }
+
+    currentSubjectIndex = subjectIndex;
+    currentQuestionIndex = 0;
+    
+    document.getElementById('quiz-title').innerText = subjectsData[subjectIndex].title;
+    document.getElementById('quiz-modal').style.display = 'flex';
+    
+    loadQuestion();
+}
+
+// Load Question
+function loadQuestion() {
+    selectedOptionIndex = null;
+    const nextBtn = document.getElementById('next-btn');
+    nextBtn.disabled = true;
+    nextBtn.innerText = (currentQuestionIndex === 9) ? "Finish Quiz" : "Next";
+
+    const subject = subjectsData[currentSubjectIndex];
+    const qData = subject.questions[currentQuestionIndex];
+
+    document.getElementById('question-tracker').innerText = `Question ${currentQuestionIndex + 1} of 10`;
+    document.getElementById('question-text').innerText = qData.q;
+
+    const optionsContainer = document.getElementById('options-list');
+    optionsContainer.innerHTML = '';
+
+    qData.options.forEach((optText, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerText = `${String.fromCharCode(65 + idx)}. ${optText}`;
+        btn.onclick = () => selectOption(idx);
+        optionsContainer.appendChild(btn);
+    });
+}
+
+// Select Option
+function selectOption(index) {
+    selectedOptionIndex = index;
+    const buttons = document.querySelectorAll('.option-btn');
+    buttons.forEach((btn, idx) => {
+        if (idx === index) {
+            btn.classList.add('selected');
+        } else {
+            btn.classList.remove('selected');
+        }
+    });
+    document.getElementById('next-btn').disabled = false;
+}
+
+// Next Question & Update State
+function nextQuestion() {
+    if (selectedOptionIndex === null) return;
+
+    const currentQData = subjectsData[currentSubjectIndex].questions[currentQuestionIndex];
+    userScores[currentSubjectIndex][currentQuestionIndex] = (selectedOptionIndex === currentQData.correct);
+
+    localStorage.setItem('lanhub_italian_scores', JSON.stringify(userScores));
+
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < 10) {
+        loadQuestion();
+    } else {
+        completedQuizzes[currentSubjectIndex] = true;
+        localStorage.setItem('lanhub_italian_completed', JSON.stringify(completedQuizzes));
+        
+        updateLockState();
+        updateUI();
+
+        alert(`🎉 Congratulations! You completed ${subjectsData[currentSubjectIndex].title}. Next lesson is unlocked!`);
+        closeQuiz();
+    }
+}
+
+// Update Points and Progress
+function updateUI() {
+    let correctCount = 0;
+    userScores.forEach(subj => {
+        subj.forEach(qCorrect => {
+            if (qCorrect) correctCount++;
+        });
+    });
+
+    const totalPoints = correctCount * 50;
+    const progressPercent = Math.round((correctCount / 40) * 100);
+
+    document.getElementById('points-display').innerText = `${totalPoints} / 2000 🏆`;
+    document.getElementById('progress-fill').style.width = `${progressPercent}%`;
+}
+
+// Close Modal
+function closeQuiz() {
+    document.getElementById('quiz-modal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>

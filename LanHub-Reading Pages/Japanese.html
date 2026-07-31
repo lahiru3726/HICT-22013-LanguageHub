@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LanHub - Japanese Course</title>
+
+<link rel="stylesheet" href="./book.css">
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- Header -->
+<div class="header">
+    <div class="logo">
+        <img src="./main logo .png" alt="logo">
+    </div>
+
+    <nav class="Navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Share your Knowledge</a>
+        <a href="#">Languages</a>
+    </nav>
+</div>
+
+<hr class="divider">
+
+<!-- Course Bar -->
+<div class="course-bar">
+    <div class="course-title">
+        <h1>Japanese</h1>
+        <span>Reading & Lesson Series</span>
+    </div>
+
+    <div class="user-info">
+        <div class="user-meta">
+            <div class="name-row">
+                <div class="name">Pramuditha Shehan</div>
+                <div class="status">Status</div>
+            </div>
+
+            <div class="name-row">
+                <div>
+                    <span class="label">Points :</span>
+                    <span class="points-pill" id="points-display">0 / 2000 🏆</span>
+                </div>
+                <div class="stayed">Stayed Time : 15min</div>
+            </div>
+
+            <div class="progress-row">
+                <span class="label">Progress :</span>
+                <div class="progress-track">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Timeline Section (4 Japanese PDF Lessons) -->
+<div class="timeline">
+
+    <!-- Left Side Image Boxes (PDF Open Triggers) -->
+    <div class="left-side">
+        <div class="image-box" id="box-0" onclick="handlePdfClick(0)" title="Click to open Japanese Lesson 1 PDF">
+            <img src="./JAPAN Coverpage.png" alt="Japanese Lesson 1">
+        </div>
+
+        <div class="image-box locked" id="box-1" onclick="handlePdfClick(1)" title="Click to open Japanese Lesson 2 PDF">
+            <img src="./JAPAN Coverpage.png" alt="Japanese Lesson 2">
+        </div>
+
+        <div class="image-box locked" id="box-2" onclick="handlePdfClick(2)" title="Click to open Japanese Lesson 3 PDF">
+            <img src="./JAPAN Coverpage.png" alt="Japanese Lesson 3">
+        </div>
+
+        <div class="image-box locked" id="box-3" onclick="handlePdfClick(3)" title="Click to open Japanese Lesson 4 PDF">
+            <img src="./JAPAN Coverpage.png" alt="Japanese Lesson 4">
+        </div>
+    </div>
+
+    <!-- Middle Line Dynamic Vertical Progress Line -->
+    <div class="middle-line">
+        <div class="middle-line-track"></div>
+        <div class="middle-line-fill" id="vertical-line-fill"></div>
+        <div class="dot active" id="dot-0"></div>
+        <div class="dot" id="dot-1"></div>
+        <div class="dot" id="dot-2"></div>
+        <div class="dot" id="dot-3"></div>
+    </div>
+
+    <!-- Right Side Japanese Lessons -->
+    <div class="right-side">
+
+        <!-- Lesson 1 -->
+        <div class="lesson" id="lesson-card-0">
+            <h2>Japanese Lesson 01 - Japanese From Zero! 3</h2>
+            <p>
+                Master basic Japanese grammar, sentence patterns, and core vocabulary.<br>
+                Open PDF 1 to read the full lesson guide and complete the quiz to unlock Lesson 2.
+            </p>
+            <div class="lesson-actions">
+                <a href="./Japanse/(Japanese from zero 3) George Trombley, Yukari Takenaka - Japanese from zero! 3_ Proven methods to learn japanese with integrated workbook. 3 (2015).pdf" download="Japanese_From_Zero_3.pdf" id="download-0">Download Book 1</a>
+                <button id="quiz-btn-0" onclick="startQuiz(0)">Quiz Time</button>
+            </div>
+        </div>
+
+        <!-- Lesson 2 -->
+        <div class="lesson locked" id="lesson-card-1">
+            <h2>Japanese Lesson 02 - Hiragana & Katakana</h2>
+            <p>
+                Learn the essential phonetic scripts of Japanese: Hiragana and Katakana.<br>
+                Complete Lesson 1 Quiz to unlock this section and test your character knowledge.
+            </p>
+            <div class="lesson-actions">
+                <a href="./Japanse/Japanese Hiragana and Katakana - Glen McCabe.pdf" download="Japanese_Hiragana_and_Katakana.pdf" class="disabled" id="download-1">Download Book 2</a>
+                <button id="quiz-btn-1" onclick="startQuiz(1)" disabled>🔒 Locked</button>
+            </div>
+        </div>
+
+        <!-- Lesson 3 -->
+        <div class="lesson locked" id="lesson-card-2">
+            <h2>Japanese Lesson 03 - 250 Essential Kanji Characters</h2>
+            <p>
+                Boost your reading ability with 250 fundamental Japanese Kanji characters.<br>
+                Complete Lesson 2 Quiz to unlock this section.
+            </p>
+            <div class="lesson-actions">
+                <a href="./Japanse/250 essential Japanese kanji characters. Volume 1 (Revised edition) ( PDFDrive ).pdf" download="250_Essential_Japanese_Kanji.pdf" class="disabled" id="download-2">Download Book 3</a>
+                <button id="quiz-btn-2" onclick="startQuiz(2)" disabled>🔒 Locked</button>
+            </div>
+        </div>
+
+        <!-- Lesson 4 -->
+        <div class="lesson locked" id="lesson-card-3">
+            <h2>Japanese Lesson 04 - Learn to Speak Japanese Quickly</h2>
+            <p>
+                Master natural conversational phrases, daily expressions, and spoken Japanese.<br>
+                Complete Lesson 3 Quiz to unlock this final level.
+            </p>
+            <div class="lesson-actions">
+                <a href="./Japanse/Learn to Speak Japanese Quickly - Emiko Konomi (1) (1).pdf" download="Learn_to_Speak_Japanese_Quickly.pdf" class="disabled" id="download-3">Download Book 4</a>
+                <button id="quiz-btn-3" onclick="startQuiz(3)" disabled>🔒 Locked</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- Quiz Modal -->
+<div class="modal-overlay" id="quiz-modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeQuiz()">&times;</span>
+        
+        <div class="quiz-header">
+            <h3 id="quiz-title">Quiz Title</h3>
+            <span id="question-tracker" style="font-size: 13px; color: #777;">Question 1 of 10</span>
+        </div>
+
+        <div id="quiz-body">
+            <div class="question-text" id="question-text">Question goes here?</div>
+            <div class="options-list" id="options-list"></div>
+            
+            <div class="quiz-footer">
+                <span style="font-size: 13px; color: #19c37d; font-weight: bold;">+50 Points per correct answer</span>
+                <button class="quiz-next-btn" id="next-btn" onclick="nextQuestion()" disabled>Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Data for 4 Japanese Lessons (10 Questions each = 40 questions total)
+// 40 questions * 50 points = 2000 max points.
+const subjectsData = [
+    {
+        title: "Japanese Lesson 01 Quiz - Fundamentals & Grammar",
+        pdf: "./Japanse/(Japanese from zero 3) George Trombley, Yukari Takenaka - Japanese from zero! 3_ Proven methods to learn japanese with integrated workbook. 3 (2015).pdf",
+        questions: [
+            { q: "1. What does 'Konnichiwa' mean in English?", options: ["Good morning", "Good afternoon / Hello", "Good evening", "Goodbye"], correct: 1 },
+            { q: "2. Which particle indicates the main topic of a sentence?", options: ["を (wo)", "に (ni)", "は (wa)", "で (de)"], correct: 2 },
+            { q: "3. How do you say 'Thank you' politely in Japanese?", options: ["Arigatou gozaimasu", "Sumimasen", "Gomen nasai", "Sayounara"], correct: 0 },
+            { q: "4. What does 'Watashi' (私) mean?", options: ["You", "He", "I / Me", "They"], correct: 2 },
+            { q: "5. What is the Japanese word for 'Water'?", options: ["Mizu", "Ocha", "Gohan", "Sake"], correct: 0 },
+            { q: "6. How do you say 'Good morning' politely?", options: ["Ohayou gozaimasu", "Konbanwa", "Oyasumi nasai", "Sayounara"], correct: 0 },
+            { q: "7. What does the word 'Desu' (です) function as?", options: ["Verb 'to go'", "Copula 'to be' (am/is/are)", "Particle 'and'", "Question marker"], correct: 1 },
+            { q: "8. What particle is placed at the end of a sentence to make it a question?", options: ["Ka (か)", "Ne (ね)", "Yo (よ)", "Mo (も)"], correct: 0 },
+            { q: "9. What does 'Sumimasen' mean?", options: ["Hello", "Excuse me / Sorry", "Goodbye", "Please"], correct: 1 },
+            { q: "10. What is 'Cat' in Japanese?", options: ["Inu", "Neko", "Tori", "Sakana"], correct: 1 }
+        ]
+    },
+    {
+        title: "Japanese Lesson 02 Quiz - Hiragana & Katakana",
+        pdf: "./Japanse/Japanese Hiragana and Katakana - Glen McCabe.pdf",
+        questions: [
+            { q: "1. What is Katakana primarily used for in Japanese?", options: ["Native words", "Foreign loanwords & names", "Particles only", "Formal titles"], correct: 1 },
+            { q: "2. How many basic characters are in the standard Hiragana chart?", options: ["26", "46", "50", "100"], correct: 1 },
+            { q: "3. Which Hiragana character represents the sound 'a'?", options: ["あ", "い", "う", "え"], correct: 0 },
+            { q: "4. Which Katakana character represents the sound 'ka'?", options: ["カ", "キ", "ク", "ケ"], correct: 0 },
+            { q: "5. In Hiragana, how is a double consonant (e.g., 'Gakko') written?", options: ["Small つ (tsu)", "Small や (ya)", "Long line ー", "Tenten (〃)"], correct: 0 },
+            { q: "6. What Hiragana character is 'し'?", options: ["Sa", "Shi", "Su", "Se"], correct: 1 },
+            { q: "7. What Katakana character is 'サ'?", options: ["Sa", "Shi", "Su", "Se"], correct: 0 },
+            { q: "8. What marks add a voiced sound (e.g., changing 'ka' to 'ga')?", options: ["Handakuten (◦)", "Dakuten / Tenten (〃)", "Small tsu", "Cho-onpu (ー)"], correct: 1 },
+            { q: "9. Which Katakana character represents the sound 'N'?", options: ["ソ", "ン", "シ", "ツ"], correct: 1 },
+            { q: "10. How is the word 'America' written in Japanese?", options: ["Hiragana", "Katakana", "Kanji", "Romaji"], correct: 1 }
+        ]
+    },
+    {
+        title: "Japanese Lesson 03 Quiz - Essential Kanji Characters",
+        pdf: "./Japanse/250 essential Japanese kanji characters. Volume 1 (Revised edition) ( PDFDrive ).pdf",
+        questions: [
+            { q: "1. What does the Kanji '日' represent?", options: ["Moon", "Sun / Day", "Tree", "Water"], correct: 1 },
+            { q: "2. What is the meaning of the Kanji '月'?", options: ["Sun", "Moon / Month", "Fire", "Gold"], correct: 1 },
+            { q: "3. What does the Kanji '木' mean?", options: ["Water", "Tree / Wood", "Soil", "Person"], correct: 1 },
+            { q: "4. What is the Kanji for 'Mountain'?", options: ["川", "山", "田", "石"], correct: 1 },
+            { q: "5. What does the Kanji '人' represent?", options: ["Dog", "Person / Human", "Tree", "House"], correct: 1 },
+            { q: "6. What is the reading for the Kanji '水'?", options: ["Mizu", "Hi", "Ki", "Tsuchi"], correct: 0 },
+            { q: "7. What does the Kanji '大' mean?", options: ["Small", "Big / Large", "High", "Red"], correct: 1 },
+            { q: "8. What is the Kanji for 'River'?", options: ["山", "川", "海", "空"], correct: 1 },
+            { q: "9. What does the Kanji '小' mean?", options: ["Big", "Small", "Middle", "Long"], correct: 1 },
+            { q: "10. What does the Kanji word '日本' (Nihon) mean?", options: ["Sun", "Japan", "Book", "Today"], correct: 1 }
+        ]
+    },
+    {
+        title: "Japanese Lesson 04 Quiz - Conversational Japanese",
+        pdf: "./Japanse/Learn to Speak Japanese Quickly - Emiko Konomi (1) (1).pdf",
+        questions: [
+            { q: "1. How do you ask 'Where is the bathroom?' in Japanese?", options: ["Toire wa doko desu ka?", "Toire wa ikura desu ka?", "Toire wa nani desu ka?", "Toire wa dare desu ka?"], correct: 0 },
+            { q: "2. What does 'Ikura desu ka?' mean?", options: ["What time is it?", "How much is it?", "Where are you going?", "What is your name?"], correct: 1 },
+            { q: "3. How do you say 'Delicious' in Japanese?", options: ["Oishii desu", "Tanoshii desu", "Muzukashii desu", "Kawaii desu"], correct: 0 },
+            { q: "4. What expression do Japanese people say before eating?", options: ["Gochisousama deshita", "Itadakimasu", "Kanpai", "Okaeri"], correct: 1 },
+            { q: "5. What expression is used after finishing a meal?", options: ["Itadakimasu", "Gochisousama deshita", "Tadaima", "Irasshaimase"], correct: 1 },
+            { q: "6. How do you say 'Pleased to meet you' when introducing yourself?", options: ["Hajimemashite", "Sayounara", "Gambatte", "Daijoubu"], correct: 0 },
+            { q: "7. What does 'Daijoubu desu' mean?", options: ["I don't know", "It's okay / I'm fine", "I am sorry", "See you tomorrow"], correct: 1 },
+            { q: "8. What do you say when returning home?", options: ["Tadaima", "Okaeri", "Irasshaimase", "Kanpai"], correct: 0 },
+            { q: "9. How do you say 'Cheers!' when making a toast?", options: ["Kanpai", "Banzai", "Sugoi", "Yatta"], correct: 0 },
+            { q: "10. How do you say 'See you tomorrow'?", options: ["Mata ashita", "Mata ne", "Sayounara", "Konbanwa"], correct: 0 }
+        ]
+    }
+];
+
+// User Scores & Completed Quiz Status (Saved in LocalStorage)
+let userScores = JSON.parse(localStorage.getItem('lanhub_japanese_scores')) || [
+    new Array(10).fill(false),
+    new Array(10).fill(false),
+    new Array(10).fill(false),
+    new Array(10).fill(false)
+];
+
+// Completed Quizzes array [lesson1, lesson2, lesson3, lesson4]
+let completedQuizzes = JSON.parse(localStorage.getItem('lanhub_japanese_completed')) || [false, false, false, false];
+
+let currentSubjectIndex = 0;
+let currentQuestionIndex = 0;
+let selectedOptionIndex = null;
+
+// Initialize on page load
+window.onload = function() {
+    updateLockState();
+    updateUI();
+};
+
+// Function to check lock state and update UI components
+function updateLockState() {
+    for (let i = 0; i < 4; i++) {
+        const isUnlocked = (i === 0) || completedQuizzes[i - 1];
+        
+        const box = document.getElementById(`box-${i}`);
+        const lessonCard = document.getElementById(`lesson-card-${i}`);
+        const quizBtn = document.getElementById(`quiz-btn-${i}`);
+        const downloadLink = document.getElementById(`download-${i}`);
+        const dot = document.getElementById(`dot-${i}`);
+
+        if (isUnlocked) {
+            box.classList.remove('locked');
+            lessonCard.classList.remove('locked');
+            quizBtn.disabled = false;
+            quizBtn.innerText = completedQuizzes[i] ? "Retake Quiz" : "Quiz Time";
+            downloadLink.classList.remove('disabled');
+            dot.classList.add('active');
+            if (completedQuizzes[i]) dot.classList.add('completed');
+        } else {
+            box.classList.add('locked');
+            lessonCard.classList.add('locked');
+            quizBtn.disabled = true;
+            quizBtn.innerText = "🔒 Locked";
+            downloadLink.classList.add('disabled');
+            dot.classList.remove('active', 'completed');
+        }
+    }
+
+    // Dynamic Vertical Green Line Height Progress
+    let completedCount = completedQuizzes.filter(Boolean).length;
+    let fillHeightPercent = 0;
+    if (completedCount === 1) fillHeightPercent = 33;
+    else if (completedCount === 2) fillHeightPercent = 66;
+    else if (completedCount >= 3) fillHeightPercent = 100;
+
+    document.getElementById('vertical-line-fill').style.height = `${fillHeightPercent}%`;
+}
+
+// Function when PDF Image Box is clicked
+function handlePdfClick(subjectIndex) {
+    const isUnlocked = (subjectIndex === 0) || completedQuizzes[subjectIndex - 1];
+
+    if (!isUnlocked) {
+        alert(`🔒 Lesson ${subjectIndex + 1} is locked! Please complete Lesson ${subjectIndex} Quiz first.`);
+        return;
+    }
+
+    const pdfPath = subjectsData[subjectIndex].pdf;
+    window.open(pdfPath, '_blank');
+}
+
+// Function to start quiz
+function startQuiz(subjectIndex) {
+    const isUnlocked = (subjectIndex === 0) || completedQuizzes[subjectIndex - 1];
+    if (!isUnlocked) {
+        alert(`🔒 Please complete Lesson ${subjectIndex} quiz first!`);
+        return;
+    }
+
+    currentSubjectIndex = subjectIndex;
+    currentQuestionIndex = 0;
+    
+    document.getElementById('quiz-title').innerText = subjectsData[subjectIndex].title;
+    document.getElementById('quiz-modal').style.display = 'flex';
+    
+    loadQuestion();
+}
+
+// Load Question in Modal
+function loadQuestion() {
+    selectedOptionIndex = null;
+    const nextBtn = document.getElementById('next-btn');
+    nextBtn.disabled = true;
+    nextBtn.innerText = (currentQuestionIndex === 9) ? "Finish Quiz" : "Next";
+
+    const subject = subjectsData[currentSubjectIndex];
+    const qData = subject.questions[currentQuestionIndex];
+
+    document.getElementById('question-tracker').innerText = `Question ${currentQuestionIndex + 1} of 10`;
+    document.getElementById('question-text').innerText = qData.q;
+
+    const optionsContainer = document.getElementById('options-list');
+    optionsContainer.innerHTML = '';
+
+    qData.options.forEach((optText, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.innerText = `${String.fromCharCode(65 + idx)}. ${optText}`;
+        btn.onclick = () => selectOption(idx);
+        optionsContainer.appendChild(btn);
+    });
+}
+
+// Option Selection
+function selectOption(index) {
+    selectedOptionIndex = index;
+    const buttons = document.querySelectorAll('.option-btn');
+    buttons.forEach((btn, idx) => {
+        if (idx === index) {
+            btn.classList.add('selected');
+        } else {
+            btn.classList.remove('selected');
+        }
+    });
+    document.getElementById('next-btn').disabled = false;
+}
+
+// Next Question & Update Progress
+function nextQuestion() {
+    if (selectedOptionIndex === null) return;
+
+    const currentQData = subjectsData[currentSubjectIndex].questions[currentQuestionIndex];
+    
+    // Check answer correctness
+    userScores[currentSubjectIndex][currentQuestionIndex] = (selectedOptionIndex === currentQData.correct);
+
+    // Save scores to LocalStorage
+    localStorage.setItem('lanhub_japanese_scores', JSON.stringify(userScores));
+
+    currentQuestionIndex++;
+
+    if (currentQuestionIndex < 10) {
+        loadQuestion();
+    } else {
+        // Quiz completed for this lesson
+        completedQuizzes[currentSubjectIndex] = true;
+        localStorage.setItem('lanhub_japanese_completed', JSON.stringify(completedQuizzes));
+        
+        updateLockState();
+        updateUI();
+
+        alert(`🎉 Congratulations! You have completed ${subjectsData[currentSubjectIndex].title}. Next lesson is unlocked!`);
+        closeQuiz();
+    }
+}
+
+// Update Points and Horizontal Progress Bar
+function updateUI() {
+    let correctCount = 0;
+    userScores.forEach(subj => {
+        subj.forEach(qCorrect => {
+            if (qCorrect) correctCount++;
+        });
+    });
+
+    const totalPoints = correctCount * 50; // 40 questions * 50 = 2000 max points
+    const progressPercent = Math.round((correctCount / 40) * 100);
+
+    document.getElementById('points-display').innerText = `${totalPoints} / 2000 🏆`;
+    document.getElementById('progress-fill').style.width = `${progressPercent}%`;
+}
+
+// Close Quiz Modal
+function closeQuiz() {
+    document.getElementById('quiz-modal').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
