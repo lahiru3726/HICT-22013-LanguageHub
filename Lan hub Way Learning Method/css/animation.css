@@ -1,0 +1,4 @@
+.page--landing[data-animate-page] [data-animate] {
+  transition-duration: var(--duration-load);
+  transition-delay: var(--delay-load);
+}
