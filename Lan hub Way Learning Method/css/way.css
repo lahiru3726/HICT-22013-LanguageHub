@@ -1,0 +1,422 @@
+:root {
+  --progress-orange: #F9A83D;
+  --progress-grey: #A3A3A3;
+  --progress-track: #E1E1E1;   
+}
+
+body { background: #FFFFFF; 
+       height:100%;}
+
+/*header with prograss bar*/
+
+.way-header {
+  padding-top: calc(var(--nav-height) + 40px);
+  padding-bottom: 30px;
+  background: linear-gradient(180deg, #F4FBF8 0%, #FFFFFF 100%);
+ 
+}
+
+.way-header__inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.way-header__titles {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.way-header__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 52px;
+  color: var(--color-green);
+  line-height: 1;
+  margin-left: 80px;
+}
+
+.way-header__subtitle {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-grey-text);
+}
+
+/*progress panel with header*/
+
+.progress-panel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.3s var(--ease-gentle);
+  margin-right:90px;
+}
+
+.progress-panel__avatar-wrap {
+  flex-shrink: 0;
+}
+
+.progress-panel__avatar,
+.profile-chip__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 4px solid var(--color-green);
+  background: #EAFBF3;
+  color: var(--color-green);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  overflow: hidden;
+  user-select: none;
+}
+
+.progress-panel__details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transform-origin: left center;
+}
+
+.progress-panel__details--right {
+  align-items: flex-start;
+}
+
+.progress-panel__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.progress-panel__label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--progress-grey);
+}
+
+.progress-panel__value {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--progress-orange);
+}
+
+.progress-panel__value--time {
+  font-size: 21px;
+}
+
+.progress-panel__item--name .progress-panel__value {
+  font-size: 20px;
+}
+
+/* Points pill */
+.points-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 50px;
+  height: 20px;
+  border-radius: 12px;
+  background: rgba(22, 216, 137, 0.15);
+  color: var(--progress-orange);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.points-pill__coin {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-green);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+}
+
+.progress-bar {
+  position: relative;
+  display: inline-block;
+  width: 301px;
+  height: 11px;
+  border-radius: 12px;
+  background: var(--progress-track);
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  border-radius: 12px;
+  background: var(--color-green);
+  transition: width 1s var(--ease-gentle);
+}
+
+/*folfing trigger*/
+
+#foldSentinel {
+  height: 1px;
+}
+
+/*floating progress bar*/
+
+.profile-chip {
+  position: fixed;
+  top: 125px;
+  right: var(--page-gutter);
+  z-index: 110;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(24px) scale(0.85);
+  transition: opacity 0.5s var(--ease-gentle),
+              transform 0.5s var(--ease-gentle),
+              visibility 0.5s;
+}
+
+/* "folding up" reveal once scrolled past the panel */
+body.is-docked .profile-chip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0) scale(1);
+}
+
+.profile-chip__avatar {
+  width: 64px;
+  height: 64px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Unfold popover — grows out from the circle on hover/focus*/
+  
+.profile-chip__popover {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  min-width: 260px;
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.14);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transform-origin: top right;
+  opacity: 0;
+  visibility: hidden;
+  transform: scaleX(0.15) scaleY(0.4) translateY(-6px);
+  transition: opacity 0.45s var(--ease-gentle),
+              transform 0.45s var(--ease-gentle),
+              visibility 0.45s;
+}
+
+.profile-chip:hover .profile-chip__popover,
+.profile-chip:focus-within .profile-chip__popover {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleX(1) scaleY(1) translateY(0);
+}
+
+.profile-chip__popover .progress-bar {
+  width: 220px;
+}
+
+/*green path*/
+
+:root {
+/* Nudge this if the traveling character needs to sit a touch higher
+     or lower on top of the stage platform once you see it live. */
+  --traveler-y-offset: 10px;
+}
+
+.way-path-section {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--page-gutter) 100px;
+}
+
+.way-path-svg {
+  position: absolute;
+  top: 0;
+  left: var(--page-gutter);
+  right: var(--page-gutter);
+  width: calc(100% - (var(--page-gutter) * 2));
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.way-path {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.way-path--gray {
+  stroke: #E1E1E1;
+  stroke-width: 10;
+}
+
+.way-path--green {
+  stroke: var(--color-green);
+  stroke-width: 10;
+  transition: stroke-dashoffset 1.2s var(--ease-gentle);
+}
+
+.way-stages,
+.way-props {
+  position: relative;
+  z-index: 2;
+}
+
+.way-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 40px;
+  margin-bottom: 100px;
+}
+
+.way-row--first { margin-top: 90px; }
+
+.way-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.way-stage__platform-wrap {
+  position: relative;
+  width: 170px;
+  height: 90px;
+}
+
+.way-stage__platform {
+  width: 100%;
+  height: auto;
+  filter: grayscale(1) opacity(0.55);
+  transition: filter 0.6s var(--ease-gentle);
+}
+
+.way-stage.is-unlocked .way-stage__platform,
+.way-stage.is-final.is-unlocked .way-stage__platform {
+  filter: none;
+}
+
+.way-stage__lock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.way-stage.is-unlocked .way-stage__lock {
+  display: none;
+}
+
+.way-stage__lock svg {
+  width: 13px;
+  height: 13px;
+}
+
+.way-stage__completed-icon {
+  width: 210px;
+  filter: grayscale(1) opacity(0.55);
+  transition: filter 0.6s var(--ease-gentle);
+}
+
+.way-stage.is-unlocked .way-stage__completed-icon {
+  filter: none;
+}
+
+.way-stage__card {
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+}
+
+
+.way-stage__title {
+  
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  color: var(--color-green);
+  margin-bottom: 8px;
+  transition: opacity 0.4s ease;
+}
+
+.way-stage.is-unlocked .way-stage__title {
+  opacity: 1;
+}
+
+.way-stage__summary {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--color-grey-text);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.way-stage__btn {
+  width: 150px;
+  height: 44px;
+  font-size: 17px;
+}
+
+.way-stage__btn[disabled],
+.way-stage__btn.is-locked {
+  background: #D8D8D8;
+  color: #8B8B8B;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Decorative prop clusters — sit right beside the platform at the same
+   height, not floating above it */
+.way-prop {
+  position: absolute;
+  width: 130px;
+  filter: grayscale(1) opacity(0.5);
+  transition: filter 0.6s var(--ease-gentle);
+  pointer-events: none;
+}
+
+.way-prop.is-unlocked {
+  filter: none;
+}
+
+/* Traveling character marker */
+.way-traveler {
+  position: absolute;
+  width: 90px;
+  z-index: 3;
+  transform: translate(-50%, -100%);
+  transition: left 1.2s var(--ease-gentle), top 1.2s var(--ease-gentle);
+  pointer-events: none;
+}
