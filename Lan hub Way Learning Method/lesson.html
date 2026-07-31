@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="css/lesson.css">
 </head>
 <body class="lesson-body">
-    //lesson page prograss showing with hints and close menu
+
+//lesson page prograss showing with hints and close menu
     <header class="lesson-topbar">
   <a href="way.html" id="closeBtn" class="lesson-topbar__close" aria-label="Exit lesson">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="#A3A3A3" stroke-width="2.4" stroke-linecap="round"/></svg>
@@ -26,8 +27,29 @@
     Hint · 100
   </button>
 </header>
-//Answer selection area making 
 
+//Answer selection area making 
+<main class="lesson-main" id="lessonMain">
+  <div class="lesson-card" id="lessonCard">
+  </div>
+</main>
+
+//bottom action showing bar like response showing and action buttons
+<footer class="lesson-footer" id="lessonFooter">
+  <div class="lesson-feedback" id="lessonFeedback"></div>
+  <button class="btn btn--primary lesson-action-btn" id="actionBtn" disabled>Check</button>
+</footer>
+
+// lesson completed overlay part after fully completed the lesson series. 
+<div class="lesson-complete" id="lessonComplete">
+  <img src="assets/way/completed-icon.svg" alt="" class="lesson-complete__icon">
+  <h2 class="lesson-complete__title">Lesson Complete!</h2>
+  <p class="lesson-complete__points">+50 points</p>
+  <a href="way.html" class="btn btn--primary lesson-complete__btn" id="continueBtn">Continue</a>
+</div>
+
+<script src="js/state.js"></script>
+<script src="js/lesson-engine.js"></script>
 
 </body>
 </html>
