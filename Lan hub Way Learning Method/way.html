@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lan Hub Learning Method</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lan Hub Learning — Your Learning Way</title>
 
-    <link rel="stylesheet" href="../css/fonts.css">
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="css/way.css">
-    <link rel="stylesheet" href="css/way-responsive.css"> 
-    <link rel="stylesheet" href="css/animation.css">    
-
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="css/way.css">
+<link rel="stylesheet" href="css/way-responsive.css"> 
+<link rel="stylesheet" href="css/animation.css">    
 </head>
-
 <body>
-  //Navigation bar
+
+<!-- ============================================================
+     NAV BAR — identical to the landing page, plus a fixed profile
+     chip that only becomes visible once the page is scrolled past
+     the progress panel (see js/way.js + .progress-panel--docked).
+     ============================================================ -->
 <header class="navbar" id="navbar">
-        <div class="navbar__inner">
-            <a href="../index.html" class="navbar__logo">
+  <div class="navbar__inner">
+    <a href="../index.html" class="navbar__logo">
       <img src="../assets/main-logo.jpg" alt="Lan Hub logo">
     </a>
-     <nav class="navbar__links">
+    <nav class="navbar__links">
       <a href="../index.html#page-1" class="navbar__link">Home</a>
       <a href="../index.html#page-4" class="navbar__link">About</a>
       <a href="../index.html#footer" class="navbar__link">Share your Knowledge</a>
 
       <div class="navbar__dropdown" id="langDropdown">
         <button class="navbar__link navbar__link--dropdown" id="langToggle" aria-haspopup="true" aria-expanded="false">
-             Languages
+          Languages
           <svg class="navbar__chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-        //drop down menu
         <ul class="navbar__dropdown-menu" id="langMenu">
           <li><a href="way.html?lang=japanese">Japanese</a></li>
           <li><a href="way.html?lang=korean">Korean</a></li>
@@ -43,12 +45,14 @@
       </div>
     </nav>
   </div>
-  <div class="navbar__accent-line">
-        </div> 
- //folding prograss bar's code, ones the prograss bar coverd from the nav bar by scrollin an icon apper form top right upper and from there the user can view the prograss of his or her withou going all the way up of the current page. 
+  <div class="navbar__accent-line"></div>
+
+  <!-- Docked/"folded" profile chip — hidden until scroll passes the
+       progress panel, then it lives inside the navbar's right side. -->
   <div class="profile-chip" id="profileChip" tabindex="0">
     <span class="profile-chip__avatar" id="chipAvatar">GH</span>
-     <div class="profile-chip__popover" id="chipPopover">
+
+    <div class="profile-chip__popover" id="chipPopover">
       <div class="progress-panel__item progress-panel__item--name">
         <span class="progress-panel__value" id="popName">Gayantha Hashan</span>
         <span class="progress-panel__label">Status</span>
@@ -56,7 +60,7 @@
       <div class="progress-panel__item">
         <span class="progress-panel__label">Points :</span>
         <span class="points-pill"><span class="points-pill__coin"></span><span id="popPoints">0</span></span>
-        </div>
+      </div>
       <div class="progress-panel__item progress-panel__item--bar">
         <span class="progress-panel__label">Progress :</span>
         <span class="progress-bar"><span class="progress-bar__fill" id="popProgressFill"></span></span>
@@ -71,32 +75,37 @@
     </div>
   </div>
 </header>
-<main id="wayMain">
-    //Landing page heading elemts with prograss bar
-     <section class="way-header" class="page page--landing">
+
+<main id="wayMain">   
+
+  <!-- ============================================================
+       PAGE HEADER — title + lesson series + live progress panel
+       ============================================================ -->
+  <section class="way-header" class="page page--landing">
     <div class="way-header__inner">
       <div class="way-header__titles">
         <h1 class="way-header__title" id="courseTitle">Lan hub Learning</h1>
         <span class="way-header__subtitle" id="courseSubtitle">Lesson series</span>
       </div>
-       <div class="progress-panel" id="progressPanel">
+
+      <div class="progress-panel" id="progressPanel">
         <div class="progress-panel__avatar-wrap">
           <span class="progress-panel__avatar" id="mainAvatar">GH</span>
         </div>
-         <div class="progress-panel__details">
+        <div class="progress-panel__details">
           <div class="progress-panel__item progress-panel__item--name">
             <span class="progress-panel__value" id="mainName">Gayantha Hashan</span>
-        </div>
-        <div class="progress-panel__item">
+          </div>
+          <div class="progress-panel__item">
             <span class="progress-panel__label">Points :</span>
             <span class="points-pill"><span class="points-pill__coin"></span><span id="mainPoints">0</span></span>
           </div>
-        <div class="progress-panel__item progress-panel__item--bar">
+          <div class="progress-panel__item progress-panel__item--bar">
             <span class="progress-panel__label">Progress :</span>
             <span class="progress-bar"><span class="progress-bar__fill" id="mainProgressFill"></span></span>
           </div>
-          </div>
-          <div class="progress-panel__details progress-panel__details--right">
+        </div>
+        <div class="progress-panel__details progress-panel__details--right">
           <div class="progress-panel__item">
             <span class="progress-panel__label">Status</span>
           </div>
@@ -111,16 +120,22 @@
       </div>
     </div>
   </section>
-  //Js knows the exact instant the progress panel has scrolled out of view to trigger the fold animation.
- <div id="foldSentinel" aria-hidden="true"></div>
 
- <section class="way-path-section">
+  <!-- Sentinel used purely so JS knows the exact instant the progress
+       panel has scrolled out of view, to trigger the fold animation. -->
+  <div id="foldSentinel" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       THE PATH — stages, stage platforms, traveling character,
+       decorative props, all positioned by js/way.js
+       ============================================================ -->
+  <section class="way-path-section">
     <svg id="pathSvg" class="way-path-svg" preserveAspectRatio="none">
       <path id="pathGray" class="way-path way-path--gray"></path>
       <path id="pathGreen" class="way-path way-path--green"></path>
     </svg>
 
-<div class="way-props" id="propsLayer"></div>
+    <div class="way-props" id="propsLayer"></div>
     <div class="way-stages" id="stagesLayer"></div>
     <img id="traveler" class="way-traveler" src="assets/way/mini-character.svg" alt="Your progress marker">
   </section>
@@ -129,6 +144,5 @@
 
 <script src="js/state.js"></script>
 <script src="js/way.js"></script>
-
 </body>
 </html>
