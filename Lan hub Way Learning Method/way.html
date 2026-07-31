@@ -16,7 +16,7 @@
 
 <body>
     //Navigation bar
-    <header class="navbar" id="navbar">
+<header class="navbar" id="navbar">
         <div class="navbar__inner">
             <a href="../index.html" class="navbar__logo">
       <img src="../assets/main-logo.jpg" alt="Lan Hub logo">
@@ -45,7 +45,36 @@
   </div>
   <div class="navbar__accent-line">
         </div> 
-
+ //folding prograss bar's code, ones the prograss bar coverd from the nav bar by scrollin an icon apper form top right upper and from there the user can view the prograss of his or her withou going all the way up of the current page. 
+  <div class="profile-chip" id="profileChip" tabindex="0">
+    <span class="profile-chip__avatar" id="chipAvatar">GH</span>
+     <div class="profile-chip__popover" id="chipPopover">
+      <div class="progress-panel__item progress-panel__item--name">
+        <span class="progress-panel__value" id="popName">Gayantha Hashan</span>
+        <span class="progress-panel__label">Status</span>
+      </div>
+      <div class="progress-panel__item">
+        <span class="progress-panel__label">Points :</span>
+        <span class="points-pill"><span class="points-pill__coin"></span><span id="popPoints">0</span></span>
+        </div>
+      <div class="progress-panel__item progress-panel__item--bar">
+        <span class="progress-panel__label">Progress :</span>
+        <span class="progress-bar"><span class="progress-bar__fill" id="popProgressFill"></span></span>
+      </div>
+      <div class="progress-panel__item">
+        <span class="progress-panel__label" id="popStatus">0% to go</span>
+      </div>
+      <div class="progress-panel__item">
+        <span class="progress-panel__label">Stayed Time :</span>
+        <span class="progress-panel__value progress-panel__value--time" id="popTime">0:00</span>
+      </div>
+    </div>
+  </div>
+</header>
+<main id="wayMain">
+    //Landing page heading elemts with prograss bar
     
+
+
 </body>
 </html>
