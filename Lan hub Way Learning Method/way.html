@@ -13,11 +13,10 @@
 <link rel="stylesheet" href="css/animation.css">    
 </head>
 <body>
-  //Navigation bar//
-
+<!-- Navigation bar -->
 <header class="navbar" id="navbar">
   <div class="navbar__inner">
-    <a href="../index.html" class="navbar__logo">
+    <a href="../index.html#page-1" class="navbar__logo">
       <img src="../assets/main-logo.jpg" alt="Lan Hub logo">
     </a>
     <nav class="navbar__links">
@@ -39,12 +38,13 @@
           <li><a href="way.html?lang=ielts">IELTS</a></li>
         </ul>
       </div>
+
+      <a href="../auth/login.html" class="navbar__link">Login</a>
     </nav>
   </div>
   <div class="navbar__accent-line"></div>
 
-  <!-- Docked/"folded" profile chip — hidden until scroll passes the
-       progress panel, then it lives inside the navbar's right side. -->
+  <!--Hidden progrss bar-->
   <div class="profile-chip" id="profileChip" tabindex="0">
     <span class="profile-chip__avatar" id="chipAvatar">GH</span>
 
@@ -74,9 +74,7 @@
 
 <main id="wayMain">   
 
-  <!-- ============================================================
-       PAGE HEADER — title + lesson series + live progress panel
-       ============================================================ -->
+<!--Header with title and the main showing prograss bar-->
   <section class="way-header" class="page page--landing">
     <div class="way-header__inner">
       <div class="way-header__titles">
@@ -121,10 +119,7 @@
        panel has scrolled out of view, to trigger the fold animation. -->
   <div id="foldSentinel" aria-hidden="true"></div>
 
-  <!-- ============================================================
-       THE PATH — stages, stage platforms, traveling character,
-       decorative props, all positioned by js/way.js
-       ============================================================ -->
+  <!-- Green completing path -->
   <section class="way-path-section">
     <svg id="pathSvg" class="way-path-svg" preserveAspectRatio="none">
       <path id="pathGray" class="way-path way-path--gray"></path>
