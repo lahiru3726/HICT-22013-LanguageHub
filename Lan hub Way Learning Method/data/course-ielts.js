@@ -4,7 +4,7 @@ window.LANHUB_COURSE = {
   "flagEmoji": "🎓",
   "voiceLang": "en-US",
   "stages": [
-    {
+    { 
       "id": 1,
       "title": "IELTS Overview",
       "summary": "Understand the four IELTS sections and how the test is scored, so you know exactly what to expect."

@@ -46,4 +46,4 @@ window.LANHUB_COURSE = {
       "isFinal": true
     }
   ]
-};
+};  

@@ -3,7 +3,7 @@ window.LANHUB_COURSE = {
   "label": "Japanese",
   "flagEmoji": "🇯🇵",
   "voiceLang": "ja-JP",
-  "stages": [
+  "stages": [  
     {
       "id": 1,
       "title": "Hiragana Basics",
