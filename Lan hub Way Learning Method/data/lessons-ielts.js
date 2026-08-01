@@ -2,7 +2,7 @@ window.LANHUB_LESSONS = {
   "language": "ielts",
   "voiceLang": "en-US",
   "lessons": {
-    "1": [
+    "1": [   
       {
         "type": "choice",
         "prompt": "How many sections does the IELTS test have?",

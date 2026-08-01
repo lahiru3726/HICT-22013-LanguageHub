@@ -3,7 +3,7 @@ window.LANHUB_COURSE = {
   "label": "Korean",
   "flagEmoji": "🇰🇷",
   "voiceLang": "ko-KR",
-  "stages": [
+  "stages": [  
     {
       "id": 1,
       "title": "Hangul Basics",

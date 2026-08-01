@@ -1,7 +1,7 @@
 window.LANHUB_LESSONS = {
   "language": "italian",
   "voiceLang": "it-IT",
-  "lessons": {
+  "lessons": {    
     "1": [
       {
         "type": "choice",

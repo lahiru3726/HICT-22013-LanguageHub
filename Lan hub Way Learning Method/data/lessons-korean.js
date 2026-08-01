@@ -2,7 +2,7 @@ window.LANHUB_LESSONS = {
   "language": "korean",
   "voiceLang": "ko-KR",
   "lessons": {
-    "1": [
+    "1": [   
       {
         "type": "choice",
         "prompt": "Which letter reads as 'ga'?",
