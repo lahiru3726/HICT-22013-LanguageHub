@@ -1,12 +1,3 @@
-/*
-   One generic engine drives all 4 language lessons and this content differs,
-   mechanics don't. Supported step types:
-   "choice"- multiple choice translation
-   "listen_choice"- plays audio first, then multiple choice
-   "fill_blank" - multiple choice styled as filling a blank
-   "build_sentence" - tap word tiles in order to build the answer
-*/
-
 (function () {
   const params = new URLSearchParams(window.location.search);
   const LANG = (params.get('lang') || 'italian').toLowerCase();
@@ -27,13 +18,13 @@
   let lessonSteps = null;
   let voiceLang = 'en-US';
   let stepIndex = 0;
-  let currentAnswerState = null; // checked, correct, slotWords, selectedOption
+  let currentAnswerState = null; // { checked, correct, slotWords, selectedOption }
   let hintUses = 0;
 
   els.closeBtn.href = `way.html?lang=${LANG}`;
   els.continueBtn.href = `way.html?lang=${LANG}`;
 
-//Load lesson data
+/* Load lesson data*/
 
   loadScript(`data/lessons-${LANG}.js`)
     .then(() => {
@@ -60,7 +51,7 @@
     });
   }
 
-//voice cuts 
+/* Speech synthesis*/
 
   function speak(text, onEnd) {
     if (!('speechSynthesis' in window) || !text) {
@@ -82,7 +73,7 @@
     });
   }
 
-//next step rendering
+  /* Step rendering*/
 
   function renderStep(index) {
     stepIndex = index;
@@ -147,7 +138,7 @@
       card.textContent = opt;
 
       if (step.type !== 'build_sentence' && step.speakOptions) {
-
+        // small inline pronunciation helper on each option
         const mini = document.createElement('span');
         mini.className = 'speaker-btn-inline';
         mini.innerHTML = speakerIconSVG(14);
@@ -227,8 +218,6 @@
       slot.appendChild(chip);
     });
   }
-
- //checking the anser and if the answer right then the continue button appearing
 
   els.actionBtn.addEventListener('click', () => {
     if (!currentAnswerState) return;
@@ -317,7 +306,7 @@
     els.complete.classList.add('is-visible');
   }
 
-  //hint shower
+  /*Hint giver*/
 
   els.hintBtn.addEventListener('click', () => {
     if (currentAnswerState && currentAnswerState.checked) return;
@@ -355,7 +344,6 @@
       }
     }
   }
-
 
   function updateTopProgress() {
     const pct = (stepIndex / lessonSteps.length) * 100;
