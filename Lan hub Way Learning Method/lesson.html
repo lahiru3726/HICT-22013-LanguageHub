@@ -11,9 +11,7 @@
 </head>
 <body class="lesson-body">
 
-<!-- ============================================================
-     LESSON TOP BAR — close, step progress, live points, hint
-     ============================================================ -->
+<!--Top bar of the lesson page-->
 <header class="lesson-topbar">
   <a href="way.html" id="closeBtn" class="lesson-topbar__close" aria-label="Exit lesson">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="#A3A3A3" stroke-width="2.4" stroke-linecap="round"/></svg>
@@ -33,26 +31,19 @@
   </button>
 </header>
 
-<!-- ============================================================
-     MAIN EXERCISE STAGE — populated per-step by lesson-engine.js
-     ============================================================ -->
 <main class="lesson-main" id="lessonMain">
   <div class="lesson-card" id="lessonCard">
-    <!-- injected per step -->
+    
   </div>
 </main>
 
-<!-- ============================================================
-     BOTTOM ACTION BAR — check / continue, feedback banner
-     ============================================================ -->
+<!--Bottom Action bar-->
 <footer class="lesson-footer" id="lessonFooter">
   <div class="lesson-feedback" id="lessonFeedback"></div>
   <button class="btn btn--primary lesson-action-btn" id="actionBtn" disabled>Check</button>
 </footer>
 
-<!-- ============================================================
-     LESSON COMPLETE OVERLAY
-     ============================================================ -->
+<!--Lesson completed Overlay-->
 <div class="lesson-complete" id="lessonComplete">
   <img src="assets/way/completed-icon.svg" alt="" class="lesson-complete__icon">
   <h2 class="lesson-complete__title">Lesson Complete!</h2>
