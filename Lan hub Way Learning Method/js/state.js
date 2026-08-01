@@ -1,4 +1,3 @@
-
 const LanHubState = (() => {
   const STORAGE_KEY = 'lanhub_state_v1';
   const HINT_COST = 100;
@@ -12,19 +11,20 @@ const LanHubState = (() => {
     points: 0,
     stayedSeconds: {}, // per-language seconds, e.g. { italian: 420 }
     progress: {
-      // completedStages: array of stage ids finished for that language
+  // completedStages - array of stage ids finished for that language
+
       italian: { completedStages: [] },
       korean: { completedStages: [] },
       japanese: { completedStages: [] },
       ielts: { completedStages: [] }
     },
-   
+// set right before leaving lesson.html so way.html knows to play the "character walks to next stage" animation on its next load
+
     justCompleted: null // { language, stageId }
   };
 
   function deepClone(obj) {
-    // Avoids relying on structuredClone, which isn't available in every browser/webview — a plain JSON round-trip is enough for this plain-data state object.
-    
+// Avoids relying on structuredClone, which isn't available in every browser/webview — a plain JSON round-trip is enough forthis plain-data state object.
     return JSON.parse(JSON.stringify(obj));
   }
 
@@ -33,7 +33,7 @@ const LanHubState = (() => {
       const raw = localStorage.getItem(STORAGE_KEY);
       if (!raw) return deepClone(DEFAULT_STATE);
       const parsed = JSON.parse(raw);
-      // merge shallowly so older saves gain new fields safely
+  // merge shallowly so older saves gain new fields safely
       return {
         ...deepClone(DEFAULT_STATE),
         ...parsed,
@@ -51,8 +51,7 @@ const LanHubState = (() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     } catch (e) {
-      // Some browsers/webviews block localStorage entirely for file:// pages or in private-browsing modes. Don't let that take down the rest of the page
-
+     
       console.warn('LanHubState: could not save (storage unavailable).', e);
     }
   }
