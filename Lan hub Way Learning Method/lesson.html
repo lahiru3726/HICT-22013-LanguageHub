@@ -1,55 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lan Hub — Lesson</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lan Hub — Lesson</title>
 
-    <link rel="stylesheet" href="../css/fonts.css">
-    <link rel="stylesheet" href="../css/base.css">
-    <link rel="stylesheet" href="css/lesson.css">
+<link rel="stylesheet" href="../css/fonts.css">
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="css/lesson.css">   
 </head>
 <body class="lesson-body">
-
-//lesson page prograss showing with hints and close menu
+    //lesson page prograss showing with hints and close menu
     <header class="lesson-topbar">
   <a href="way.html" id="closeBtn" class="lesson-topbar__close" aria-label="Exit lesson">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18M18 6L6 18" stroke="#A3A3A3" stroke-width="2.4" stroke-linecap="round"/></svg>
   </a>
+
   <div class="lesson-topbar__progress">
     <div class="lesson-topbar__progress-fill" id="stepProgressFill"></div>
   </div>
+
   <div class="lesson-topbar__points">
     <span class="points-pill"><span class="points-pill__coin"></span><span id="livePoints">0</span></span>
   </div>
+
   <button class="lesson-hint-btn" id="hintBtn" type="button">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.4.3.5.7.5 1.1v.5h6v-.5c0-.4.1-.8.5-1.1A6 6 0 0 0 12 3Z" stroke="#F9A83D" stroke-width="1.8" stroke-linejoin="round"/></svg>
     Hint · 100
   </button>
 </header>
-
 //Answer selection area making 
-<main class="lesson-main" id="lessonMain">
-  <div class="lesson-card" id="lessonCard">
-  </div>
-</main>
 
-//bottom action showing bar like response showing and action buttons
-<footer class="lesson-footer" id="lessonFooter">
-  <div class="lesson-feedback" id="lessonFeedback"></div>
-  <button class="btn btn--primary lesson-action-btn" id="actionBtn" disabled>Check</button>
-</footer>
-
-// lesson completed overlay part after fully completed the lesson series. 
-<div class="lesson-complete" id="lessonComplete">
-  <img src="assets/way/completed-icon.svg" alt="" class="lesson-complete__icon">
-  <h2 class="lesson-complete__title">Lesson Complete!</h2>
-  <p class="lesson-complete__points">+50 points</p>
-  <a href="way.html" class="btn btn--primary lesson-complete__btn" id="continueBtn">Continue</a>
-</div>
-
-<script src="js/state.js"></script>
-<script src="js/lesson-engine.js"></script>
 
 </body>
 </html>
