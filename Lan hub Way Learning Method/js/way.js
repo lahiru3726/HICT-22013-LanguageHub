@@ -11,7 +11,7 @@
   let stagesData = null;
   let sectionEl, svgEl, grayPathEl, greenPathEl, travelerEl, stagesLayerEl, propsLayerEl;
 
-  //Loading the course data for the selected language
+  /* Core data loading*/
   loadScript(`data/course-${LANG}.js`)
     .then(() => {
       if (!window.LANHUB_COURSE) throw new Error('Course data missing for ' + LANG);
@@ -35,7 +35,7 @@
     });
   }
 
- function init(data) {
+  function init(data) {
     document.title = `Lan Hub Learning — ${data.label}`;
     document.getElementById('courseSubtitle').textContent = `Lesson series · ${data.label}`;
 
@@ -75,6 +75,7 @@
     window.addEventListener('resize', debounce(layoutAndDrawPath, 200));
   }
 
+  /* Language Dropdown menu*/
   function initLangDropdown() {
     const dropdown = document.getElementById('langDropdown');
     const toggle = document.getElementById('langToggle');
@@ -101,7 +102,7 @@
     });
   }
 
-  //Builde stage DOM (built once; later updates only toggle classes)
+  /* Build stage DOM */
   function buildStageDom(stages) {
     stagesLayerEl.innerHTML = '';
     nodeRefs = [];
@@ -153,8 +154,8 @@
         card.appendChild(btn);
       }
 
-      // Node + card order flips so the card always sits on the
-      // opposite side from where the node lands in the row.
+// Node + card order flips so the card always sits on the opposite side from where the node lands in the row.
+
       if (side === 'left') {
         row.appendChild(node);
         row.appendChild(card);
@@ -168,10 +169,10 @@
       nodeRefs.push({ stage, node, platformImg, lock, title, summary, btn, cx: 0, cy: 0 });
     });
 
-    // Decorative prop clusters near stage 2 and stage 5 (indices 1 & 4)
+// Decorative prop clusters near stage 2 and stage 5 (indices 1 & 4)
     propsLayerEl.innerHTML = '';
-    addProp('assets/way/items-01.svg', 1, 'left');
-    addProp('assets/way/items-02.svg', 4, 'right');
+    addProp('assets/way/items-00.svg', 1, 'left');
+    addProp('assets/way/items-03.svg', 4, 'right');
   }
 
   function addProp(src, nearIndex, side) {
@@ -184,8 +185,8 @@
     propsLayerEl.appendChild(img);
   }
 
-//measure real node positions, draw the winding path, and place decorative props relative to the measurements.
-function layoutAndDrawPath() {
+  /* LAYOUT — measure real node positions, draw the winding path, and place decorative props relative to those measurements.*/
+  function layoutAndDrawPath() {
     if (!sectionEl || window.innerWidth <= 768) return; // path hidden on mobile
 
     const sectionRect = sectionEl.getBoundingClientRect();
@@ -222,7 +223,6 @@ function layoutAndDrawPath() {
     greenPathEl.style.strokeDasharray = totalLength;
 
     // Position decorative props just beside their reference node, at the same height as the platform (not floating above it)
-
     document.querySelectorAll('.way-prop').forEach((img) => {
       const idx = Number(img.dataset.nearIndex);
       const ref = nodeRefs[idx];
@@ -233,12 +233,12 @@ function layoutAndDrawPath() {
       img.style.top = ref.cy + 'px';
       img.style.transform = 'translate(-50%, -50%)';
     });
-    // Re-apply whatever unlock state is currently active so the freshly measured traveler/path positions line up immediately.
 
+    // Re-apply whatever unlock state is currently active so the freshly measured traveler/path positions line up immediately.
     if (stagesData) applyVisualState(currentCompletedCache, currentTotalCache);
   }
-  
-//Render stage — unlock classes, traveler position, green path, progress panel numbers.
+
+  /* Render state */
   let currentCompletedCache = [];
   let currentTotalCache = 1;
 
@@ -294,8 +294,8 @@ function layoutAndDrawPath() {
     }
   }
 
-  // Progress Panel Numbers counting
-function updateProgressNumbers(data, completedStages, totalLessons, pointsOverride) {
+  /* Progress bar's number counters*/
+  function updateProgressNumbers(data, completedStages, totalLessons, pointsOverride) {
     const state = LanHubState.getState();
     const points = pointsOverride != null ? pointsOverride : state.points;
     const percent = totalLessons ? Math.round((completedStages.length / totalLessons) * 100) : 0;
@@ -323,7 +323,7 @@ function updateProgressNumbers(data, completedStages, totalLessons, pointsOverri
     if (el) el.textContent = val;
   }
 
-  //Profile panel — name/avatar initials
+  /* Profile panel's name and avatar*/
   function initProfilePanel(data, totalLessons) {
     const state = LanHubState.getState();
     const initials = state.profile.name.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase();
@@ -331,9 +331,10 @@ function updateProgressNumbers(data, completedStages, totalLessons, pointsOverri
     setText('chipAvatar', initials);
     setText('mainName', state.profile.name);
     setText('popName', state.profile.name);
+  }
 
-//folding and unfolding process
-function initFoldOnScroll() {
+  /* Folding and unfolding prograss bar */
+  function initFoldOnScroll() {
     const sentinel = document.getElementById('foldSentinel');
     const observer = new IntersectionObserver(
       (entries) => {
@@ -346,8 +347,8 @@ function initFoldOnScroll() {
     observer.observe(sentinel);
   }
 
-// Stayed time counting
-function initStayedTimer() {
+  /* Stayed time shower */
+  function initStayedTimer() {
     let secondsSinceSave = 0;
     const tick = setInterval(() => {
       secondsSinceSave += 1;
@@ -367,11 +368,11 @@ function initStayedTimer() {
     });
   }
 
- function debounce(fn, wait) {
+  function debounce(fn, wait) {
     let t;
     return (...args) => {
       clearTimeout(t);
       t = setTimeout(() => fn(...args), wait);
     };
   }
-}})();
+})();
